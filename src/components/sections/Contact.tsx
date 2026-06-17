@@ -83,8 +83,8 @@ export function Contact() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
           eyebrow="تواصل معنا"
-          title="لنُضيء مشروعك معاً"
-          subtitle="هل لديكم فكرة أو مشروع؟ نحن هنا للاستماع. تواصلوا معنا وسنحوّل رؤيتكم إلى واقعٍ مُضيء."
+          title="لنُحوّل فعاليتك إلى واقع"
+          subtitle="هل لديكم فكرة لفعالية؟ نحن هنا للاستماع. تواصلوا معنا وسنُحوّل رؤيتكم إلى تجربة استثنائية لا تُنسى."
         />
 
         <div className="mt-12 grid gap-8 lg:grid-cols-5">

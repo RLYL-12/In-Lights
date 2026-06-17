@@ -47,36 +47,44 @@ export function CTA() {
             </div>
 
             <h2 className="font-display text-3xl font-bold leading-tight text-cream sm:text-5xl">
-              جاهزون لإضاءة مشروعكم؟
+              هل أنت جاهز لإطلاق فعاليتك القادمة؟
             </h2>
             <p className="mx-auto mt-4 max-w-xl font-arabic text-base text-cream/70 sm:text-lg">
-              ابدأ رحلتك مع إن لايتس اليوم. استشارة مجانية، تصاميم مبتكرة، وتنفيذ
-              احترافي يُضيء مساحتك بأناقة.
+              ابدأ رحلتك مع إن لايتس اليوم. احجز اجتماعاً، اطلب عرض سعر، أو تواصل
+              معنا مباشرة — نحن هنا لتحويل رؤيتك إلى فعالية استثنائية.
             </p>
 
-            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
               <Magnetic strength={0.4}>
                 <a
-                  href="#contact"
+                  href="#booking"
                   className="group inline-flex items-center gap-3 rounded-full bg-gold px-8 py-4 font-arabic text-base font-bold text-navy shadow-glow-gold transition-all hover:bg-gold-light"
                 >
-                  ابدأ الآن
+                  احجز اجتماعاً
                   <ArrowLeft className="h-5 w-5 transition-transform group-hover:-translate-x-1" />
                 </a>
               </Magnetic>
               <Magnetic strength={0.4}>
                 <a
-                  href="tel:+966112345678"
+                  href="#booking"
                   className="inline-flex items-center gap-2 rounded-full border-2 border-cream/30 px-8 py-4 font-arabic text-base font-semibold text-cream transition-all hover:border-cream hover:bg-cream/10"
                 >
+                  اطلب عرض سعر
+                </a>
+              </Magnetic>
+              <Magnetic strength={0.4}>
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-2 rounded-full border-2 border-gold/40 px-8 py-4 font-arabic text-base font-semibold text-gold-light transition-all hover:border-gold hover:bg-gold/10"
+                >
                   <Phone className="h-5 w-5" />
-                  اتصل بنا مباشرة
+                  تواصل معنا
                 </a>
               </Magnetic>
             </div>
 
             <p className="mt-6 font-arabic text-sm text-cream/50">
-              استشارة أولى مجانية بالكامل • ردّ خلال ٢٤ ساعة
+              استشارة أولى مجانية • ردّ خلال ٢٤ ساعة
             </p>
           </motion.div>
         </div>

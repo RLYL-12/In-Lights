@@ -9,12 +9,12 @@ import { cn } from "@/lib/utils";
 const NAV_LINKS = [
   { href: "#home", label: "الرئيسية" },
   { href: "#about", label: "من نحن" },
-  { href: "#features", label: "الميزات" },
+  { href: "#features", label: "خدماتنا" },
   { href: "#products", label: "المتجر" },
   { href: "#portfolio", label: "أعمالنا" },
+  { href: "#process", label: "آلية العمل" },
   { href: "#testimonials", label: "آراء العملاء" },
   { href: "#blog", label: "المدونة" },
-  { href: "#faq", label: "الأسئلة" },
   { href: "#contact", label: "تواصل" },
 ];
 
@@ -66,7 +66,7 @@ export function Navbar() {
 
           <div className="flex items-center gap-3">
             <a
-              href="#contact"
+              href="#booking"
               className="hidden sm:inline-flex items-center rounded-full bg-navy px-5 py-2.5 font-arabic text-sm font-semibold text-cream shadow-glow-navy transition-all hover:bg-navy-light hover:shadow-glow-gold"
             >
               ابدأ الآن
@@ -117,7 +117,7 @@ export function Navbar() {
                   </motion.a>
                 ))}
                 <a
-                  href="#contact"
+                  href="#booking"
                   onClick={() => setOpen(false)}
                   className="mt-4 rounded-full bg-navy px-5 py-3.5 text-center font-arabic text-base font-semibold text-cream"
                 >

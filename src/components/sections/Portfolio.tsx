@@ -2,81 +2,92 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MapPin, ArrowUpLeft, Building2, Home, Store } from "lucide-react";
+import {
+  MapPin,
+  ArrowUpLeft,
+  Building2,
+  Store,
+  Mic,
+  Landmark,
+  Building,
+  Rocket,
+} from "lucide-react";
 import { SectionHeading } from "@/components/brand/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
 import { cn } from "@/lib/utils";
 
 const CATEGORIES = [
   { id: "all", label: "الكل", icon: Building2 },
-  { id: "residential", label: "سكني", icon: Home },
-  { id: "commercial", label: "تجاري", icon: Store },
-  { id: "outdoor", label: "خارجي", icon: MapPin },
+  { id: "exhibition", label: "معارض", icon: Store },
+  { id: "conference", label: "مؤتمرات", icon: Mic },
+  { id: "government", label: "حكومية", icon: Landmark },
+  { id: "corporate", label: "شركات", icon: Building },
+  { id: "launch", label: "إطلاقات", icon: Rocket },
 ];
 
 const PROJECTS = [
   {
     id: 1,
-    title: "إضاءة صالة معيشة فاخرة",
-    category: "residential",
+    title: "معرض التقنية السنوي",
+    category: "exhibition",
     location: "الرياض",
     image: "/images/portfolio/project-1.png",
     year: "2024",
   },
   {
     id: 2,
-    title: "إضاءة حدائق ومسارات",
-    category: "outdoor",
-    location: "جدة",
-    image: "/images/portfolio/project-2.png",
+    title: "مؤتمر القيادة التنفيذية",
+    category: "conference",
+    location: "الرياض",
+    image: "/images/portfolio/project-3.png",
     year: "2024",
   },
   {
     id: 3,
-    title: "إضاءة بهو مكتبي",
-    category: "commercial",
+    title: "فعالية وطنية حكومية",
+    category: "government",
     location: "الرياض",
-    image: "/images/portfolio/project-3.png",
+    image: "/images/portfolio/project-6.png",
     year: "2023",
   },
   {
     id: 4,
-    title: "إضاءة ممرات جدارية",
-    category: "residential",
-    location: "الدمام",
-    image: "/images/portfolio/project-4.png",
+    title: "إطلاق منتج تقني جديد",
+    category: "launch",
+    location: "جدة",
+    image: "/images/portfolio/project-8.png",
     year: "2024",
   },
   {
     id: 5,
-    title: "إضاءة مطعم راقٍ",
-    category: "commercial",
-    location: "مكة",
-    image: "/images/portfolio/project-5.png",
+    title: "معرض العقارات السنوي",
+    category: "exhibition",
+    location: "جدة",
+    image: "/images/portfolio/project-2.png",
     year: "2023",
   },
   {
     id: 6,
-    title: "إضاءة واجهة فندق",
-    category: "outdoor",
-    location: "الرياض",
-    image: "/images/portfolio/project-6.png",
+    title: "مؤتمر طبي دولي",
+    category: "conference",
+    location: "مكة",
+    image: "/images/portfolio/project-5.png",
     year: "2024",
   },
   {
     id: 7,
-    title: "إضاءة مسجد ومساحات دينية",
-    category: "commercial",
-    location: "المدينة",
-    image: "/images/portfolio/project-7.png",
-    year: "2024",
+    title: "فعالية شركة كبرى",
+    category: "corporate",
+    location: "الدمام",
+    image: "/images/portfolio/project-4.png",
+    year: "2023",
   },
   {
     id: 8,
-    title: "إضاءة منزل ذكي متكامل",
-    category: "residential",
+    title: "حفل إطلاق منتج استهلاكي",
+    category: "launch",
     location: "الرياض",
-    image: "/images/portfolio/project-8.png",
+    image: "/images/portfolio/project-7.png",
     year: "2024",
   },
 ];
@@ -95,9 +106,9 @@ export function Portfolio() {
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="معرض الأعمال"
-          title="مشاريع أضاءت مساحاتنا"
-          subtitle="نظرة على بعض المشاريع التي نفّذناها بشغفٍ وإتقان، من المنازل الفاخرة إلى المرافق التجارية والخارجية."
+          eyebrow="أعمالنا السابقة"
+          title="فعاليات أضاءت مسارهم"
+          subtitle="نظرة على بعض الفعاليات التي نظّمنها بإتقان — من المؤتمرات إلى المعارض وإطلاقات المنتجات."
         />
 
         {/* Filter tabs */}
@@ -180,10 +191,10 @@ export function Portfolio() {
         {/* CTA */}
         <Reveal direction="up" delay={0.3} className="mt-12 text-center">
           <a
-            href="#contact"
+            href="#booking"
             className="inline-flex items-center gap-2 rounded-full border-2 border-navy/20 px-8 py-3.5 font-arabic text-base font-semibold text-navy transition-all hover:border-navy hover:bg-navy hover:text-cream"
           >
-            هل لديك مشروع؟ تواصل معنا
+            هل لديك فعالية قادمة؟ احجز الآن
             <ArrowUpLeft className="h-5 w-5" />
           </a>
         </Reveal>

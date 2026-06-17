@@ -3,13 +3,13 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
+  Monitor,
+  Volume2,
+  Languages,
+  ClipboardCheck,
+  Presentation,
+  Armchair,
   Lightbulb,
-  Lamp,
-  LampCeiling,
-  LampFloor,
-  Sparkles,
-  Award,
-  Fan,
   Heart,
   ArrowUpLeft,
   Check,
@@ -21,85 +21,78 @@ import { cn } from "@/lib/utils";
 
 const PRODUCTS = [
   {
-    icon: Lightbulb,
-    name: "إضاءة LED",
-    tag: "الأكثر مبيعاً",
-    desc: "كفاءة عالية وتوفير في الطاقة بألوان متعددة",
-    points: ["توفير حتى ٨٠٪ من الطاقة", "عمر افتراضي ٥٠ ألف ساعة", "إضاءة خالية من الوميض"],
+    icon: Monitor,
+    name: "شاشات LED",
+    tag: "الأكثر طلباً",
+    desc: "شاشات LED عالية الدقة بأحجام متنوعة",
+    points: ["دقة 4K", "أحجام قابلة للتخصيص", "تركيب احترافي"],
     color: "from-[#140e6a] to-[#2a1f8f]",
-    badge: "إضاءة داخلية",
+    badge: "عرض",
   },
   {
-    icon: LampCeiling,
-    name: "أضواء السقف",
-    tag: "تصاميم عصرية",
-    desc: "إضاءة سقف أنيقة تناسب جميع المساحات",
-    points: ["تصاميم حديثة ومتنوعة", "توزيع ضوء متساوٍ", "تركيب سهل وآمن"],
+    icon: Volume2,
+    name: "أنظمة صوت",
+    tag: "احترافية",
+    desc: "أنظمة صوت احترافية للفعاليات الكبرى",
+    points: ["صوت نقي عالي القوة", "ميكروفونات لاسلكية", "مهندس صوت مختص"],
     color: "from-[#c9a24a] to-[#e0c478]",
-    badge: "إضاءة داخلية",
+    badge: "صوت",
   },
   {
-    icon: Lamp,
-    name: "أضواء الجدار",
-    tag: "لمسة فنية",
-    desc: "إضاءة جدارية تُضيف دفئاً وأناقة لجدرانكم",
-    points: ["تصاميم فنية فريدة", "إضاءة دافئة ومريحة", "مقاومة للرطوبة"],
+    icon: Languages,
+    name: "أجهزة ترجمة فورية",
+    tag: "متعددة اللغات",
+    desc: "أجهزة ترجمة فورية لجميع اللغات",
+    points: ["دعم 32 لغة", "سماعات لاسلكية", "كابينة عازلة للصوت"],
     color: "from-[#2a1f8f] to-[#140e6a]",
-    badge: "إضاءة داخلية",
+    badge: "ترجمة",
   },
   {
-    icon: LampFloor,
-    name: "أضواء خارجية",
-    tag: "للحدائق والمسارات",
-    desc: "حلول إضاءة أرضية للحدائق والمسارات والمساحات الخارجية",
-    points: ["مقاومة للماء IP67", "تحمّل ظروف الطقس", "إضاءة موجّهة دقيقة"],
+    icon: ClipboardCheck,
+    name: "أكشاك تسجيل",
+    tag: "استقبال",
+    desc: "أكشاك تسجيل إلكتروني ذكية لاستقبال الضيوف",
+    points: ["تسجيل ذاتي سريع", "طباعة بطاقات الحضور", "تتبع الحضور"],
     color: "from-[#a87d2e] to-[#c9a24a]",
-    badge: "إضاءة خارجية",
+    badge: "تسجيل",
   },
   {
-    icon: Sparkles,
-    name: "إضاءة مخصصة",
-    tag: "حسب الطلب",
-    desc: "تصاميم إضاءة فريدة تُصنع خصيصاً لتُناسب رؤيتكم ومساحاتكم",
-    points: ["تصميم حسب الطلب", "اختيار الألوان والشدّة", "استشارة تصميم مجانية"],
+    icon: Presentation,
+    name: "منصات عرض",
+    tag: "منصة",
+    desc: "منصات عرض احترافية للفعاليات",
+    points: ["تصاميم مخصصة", "ارتفاعات متعددة", "إضاءة مدمجة"],
     color: "from-[#2a1f8f] to-[#3d2fb0]",
-    badge: "إضاءة مخصصة",
+    badge: "عرض",
   },
   {
-    icon: Award,
-    name: "إضاءة احترافية",
-    tag: "للمشاريع الكبرى",
-    desc: "حلول إضاءة احترافية للمشاريع التجارية والمؤسسية الكبرى",
-    points: ["أنظمة تحكّم ذكية", "كفاءة عالية للمساحات الواسعة", "ضمان شامل ٥ سنوات"],
+    icon: Armchair,
+    name: "أثاث فعاليات",
+    tag: "تأجير",
+    desc: "أثاث راقٍ للفعاليات والمؤتمرات",
+    points: ["كراسي Congress", "طاولات استقبال", "تنجيد فاخر"],
     color: "from-[#140e6a] to-[#0a0840]",
-    badge: "إضاءة احترافية",
-  },
-  {
-    icon: Fan,
-    name: "مراوح بإضاءة",
-    tag: "٢ في ١",
-    desc: "مراوح دائرية مزوّدة بإضاءة LED مُدمجة لتبريد وإضاءة المساحات",
-    points: ["مروحة دائرية بإضاءة LED", "تحكّم بسرعة وشدّة الإضاءة", "تصميم هادئ وأنيق"],
-    color: "from-[#c9a24a] to-[#a87d2e]",
-    badge: "إضاءة مخصصة",
+    badge: "أثاث",
   },
   {
     icon: Lightbulb,
-    name: "إضاءة عادية",
-    tag: "أساسية وموثوقة",
-    desc: "حلول إضاءة أساسية موثوقة للاستخدام اليومي بكفاءة جيدة",
-    points: ["أسعار مناسبة", "تركيب سهل وسريع", "توفير في الطاقة"],
-    color: "from-[#e0c478] to-[#c9a24a]",
-    badge: "إضاءة داخلية",
+    name: "إضاءة احترافية",
+    tag: "إضاءة مسرح",
+    desc: "أنظمة إضاءة احترافية للمسرح والفعاليات",
+    points: ["إضاءة Moving Head", "تحكم DMX", "مؤثرات بصرية"],
+    color: "from-[#c9a24a] to-[#a87d2e]",
+    badge: "إضاءة",
   },
 ];
 
 const FILTERS = [
   { id: "all", label: "الكل" },
-  { id: "إضاءة داخلية", label: "داخلية" },
-  { id: "إضاءة خارجية", label: "خارجية" },
-  { id: "إضاءة مخصصة", label: "مخصصة" },
-  { id: "إضاءة احترافية", label: "احترافية" },
+  { id: "عرض", label: "عرض" },
+  { id: "صوت", label: "صوت" },
+  { id: "ترجمة", label: "ترجمة" },
+  { id: "تسجيل", label: "تسجيل" },
+  { id: "أثاث", label: "أثاث" },
+  { id: "إضاءة", label: "إضاءة" },
 ];
 
 export function Products() {
@@ -123,8 +116,8 @@ export function Products() {
         <div className="flex flex-col items-center gap-4">
           <SectionHeading
             eyebrow="المتجر"
-            title="تشكيلة الإضاءة لدينا"
-            subtitle="اكتشف مجموعتنا الواسعة من حلول الإضاءة العصرية، المصمّمة لتلبية كل احتياجاتكم بأعلى معايير الجودة والكفاءة."
+            title="متجر المعدات والتجهيزات"
+            subtitle="تأجير وبيع المعدات التقنية للفعاليات — من شاشات LED إلى أنظمة الصوت والإضاءة الاحترافية."
           />
           {/* Favorites badge */}
           {favorites.length > 0 && (
@@ -245,7 +238,7 @@ export function Products() {
 
                     <Magnetic strength={0.3} className="mt-5">
                       <button className="group/btn flex w-full items-center justify-center gap-2 rounded-full bg-navy/5 px-4 py-3 font-arabic text-sm font-semibold text-navy transition-all hover:bg-navy hover:text-cream">
-                        عرض التفاصيل
+                        احجز الآن
                         <ArrowUpLeft className="h-4 w-4 transition-transform group-hover/btn:-translate-x-1" />
                       </button>
                     </Magnetic>

@@ -5,6 +5,7 @@ import {
   MapPin,
   Mail,
   Phone,
+  MessageCircle,
   Instagram,
   Twitter,
   Linkedin,
@@ -20,27 +21,27 @@ const FOOTER_LINKS = [
     title: "الشركة",
     links: [
       { label: "من نحن", href: "#about" },
-      { label: "الميزات", href: "#features" },
+      { label: "خدماتنا", href: "#features" },
       { label: "أعمالنا", href: "#portfolio" },
       { label: "آراء العملاء", href: "#testimonials" },
     ],
   },
   {
-    title: "المنتجات",
+    title: "المتجر",
     links: [
-      { label: "إضاءة LED", href: "#products" },
-      { label: "إضاءة مخصصة", href: "#products" },
+      { label: "شاشات LED", href: "#products" },
+      { label: "أنظمة صوت", href: "#products" },
+      { label: "أجهزة ترجمة", href: "#products" },
       { label: "إضاءة احترافية", href: "#products" },
-      { label: "مراوح بإضاءة", href: "#products" },
     ],
   },
   {
     title: "المزيد",
     links: [
       { label: "المدونة", href: "#blog" },
+      { label: "احجز فعاليتك", href: "#booking" },
       { label: "الأسئلة الشائعة", href: "#faq" },
       { label: "تواصل معنا", href: "#contact" },
-      { label: "الضمان", href: "#faq" },
     ],
   },
 ];
@@ -68,8 +69,9 @@ export function Footer() {
           <div className="lg:col-span-4">
             <BrandLockup variant="light" size={48} />
             <p className="mt-5 max-w-sm font-arabic text-sm leading-relaxed text-cream/60">
-              شركة الإضاءة المتكاملة — نُضيء مساحاتكم بأناقةٍ وكفاءة، بأحدث
-              تقنيات LED وتصاميمَ عصرية تُلهم.
+              إن لايتس (Enlights) — شركة متخصصة في إدارة وتجهيز الفعاليات
+              والمعارض والمؤتمرات. نُحوّل رؤيتكم إلى تجارب استثنائية تُضيء
+              علامتكم التجارية.
             </p>
 
             {/* Contact bits */}
@@ -80,11 +82,15 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3 font-arabic text-sm text-cream/70">
                 <Mail className="h-4 w-4 shrink-0 text-gold" />
-                info@inlights.sa
+                info@enlights.sa
               </li>
               <li className="flex items-center gap-3 font-arabic text-sm text-cream/70">
                 <Phone className="h-4 w-4 shrink-0 text-gold" />
-                +966 11 234 5678
+                <span dir="ltr">+966 11 234 5678</span>
+              </li>
+              <li className="flex items-center gap-3 font-arabic text-sm text-cream/70">
+                <MessageCircle className="h-4 w-4 shrink-0 text-gold" />
+                واتساب: <span dir="ltr">+966 55 123 4567</span>
               </li>
             </ul>
 
@@ -133,7 +139,7 @@ export function Footer() {
               ابقَ على اطلاع
             </h4>
             <p className="mb-3 font-arabic text-sm text-cream/60">
-              نشرة إضاءة شهرية، أحدث التصاميم والعروض.
+              نشرة شهرية، أحدث الفعاليات والعروض.
             </p>
             <form
               onSubmit={(e) => e.preventDefault()}
@@ -161,7 +167,7 @@ export function Footer() {
         {/* Bottom bar */}
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
           <p className="font-arabic text-xs text-cream/50">
-            © {new Date().getFullYear()} إن لايتس (In Lights) — جميع الحقوق محفوظة.
+            © {new Date().getFullYear()} إن لايتس (Enlights) — جميع الحقوق محفوظة.
           </p>
           <div className="flex items-center gap-4">
             <a href="#" className="font-arabic text-xs text-cream/50 transition-colors hover:text-gold-light">
@@ -190,7 +196,7 @@ export function Footer() {
           <Logo size={120} />
         </div>
         <p className="relative z-10 text-center font-arabic text-xs text-cream/40">
-          صُنع بشغفٍ وإتقان • In Lights ✦
+          صُنع بشغفٍ وإتقان • Enlights ✦
         </p>
       </div>
     </footer>

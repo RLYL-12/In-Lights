@@ -1,10 +1,12 @@
 import { Navbar } from "@/components/sections/Navbar";
 import { Hero } from "@/components/sections/Hero";
-import { Stats } from "@/components/sections/Stats";
+import { About } from "@/components/sections/About";
 import { Features } from "@/components/sections/Features";
 import { Products } from "@/components/sections/Products";
-import { About } from "@/components/sections/About";
+import { Booking } from "@/components/sections/Booking";
 import { Portfolio } from "@/components/sections/Portfolio";
+import { Stats } from "@/components/sections/Stats";
+import { WorkProcess } from "@/components/sections/WorkProcess";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { FAQ } from "@/components/sections/FAQ";
 import { Blog } from "@/components/sections/Blog";
@@ -20,14 +22,16 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
-        <Stats />
         <About />
         <Features />
         <Products />
+        <Booking />
         <Portfolio />
+        <Stats />
+        <WorkProcess />
         <Testimonials />
-        <Blog />
         <FAQ />
+        <Blog />
         <CTA />
         <Contact />
       </main>

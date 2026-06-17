@@ -2,15 +2,15 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
-import { ArrowLeft, Sparkles, Lightbulb, Zap, ShieldCheck } from "lucide-react";
+import { ArrowLeft, CalendarDays, MonitorSpeaker, Cpu, FileText } from "lucide-react";
 import { Star, LightRays, FloatingParticles } from "@/components/brand/Decorations";
 import { Logo } from "@/components/brand/Logo";
 import { Magnetic } from "@/components/motion/Reveal";
 
 const BULLETS = [
-  { icon: Lightbulb, text: "أضواء LED عالية الجودة" },
-  { icon: Sparkles, text: "تصاميم حديثة ومبتكرة" },
-  { icon: Zap, text: "تقنية متقدمة وموثوقة" },
+  { icon: CalendarDays, text: "إدارة الفعاليات والمؤتمرات" },
+  { icon: MonitorSpeaker, text: "شاشات LED وأنظمة صوت احترافية" },
+  { icon: Cpu, text: "حلول رقمية وتجهيزات تقنية" },
 ];
 
 export function Hero() {
@@ -96,7 +96,7 @@ export function Hero() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gold opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-gold" />
           </span>
-          شركة الإضاءة المتكاملة
+          الفعاليات والتجهيزات التقنية
         </motion.div>
 
         {/* Headline */}
@@ -106,9 +106,9 @@ export function Hero() {
           transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           className="font-display text-4xl font-bold leading-[1.15] text-navy sm:text-6xl md:text-7xl"
         >
-          أهلاً بك في
+          نصنع فعاليات وتجارب
           <br />
-          <span className="shimmer-text">عالم الإضاءة</span>
+          <span className="shimmer-text">استثنائية تضيء علامتك التجارية</span>
         </motion.h1>
 
         {/* Subtitle */}
@@ -118,8 +118,7 @@ export function Hero() {
           transition={{ delay: 0.6, duration: 0.7 }}
           className="mt-6 max-w-2xl font-arabic text-lg text-muted-foreground sm:text-xl"
         >
-          نقدّم لكم أحدث وأجمل حلول الإضاءة بأ تقنياتٍ متقدمة وتصاميمَ عصرية
-          تُضيء مساحاتكم بأناقة وتوفيرٍ في الطاقة.
+          حلول متكاملة للفعاليات والمعارض والمؤتمرات والتجهيزات التقنية
         </motion.p>
 
         {/* Bullet points */}
@@ -156,20 +155,29 @@ export function Hero() {
         >
           <Magnetic strength={0.4}>
             <a
-              href="#products"
+              href="#booking"
               className="group inline-flex items-center gap-3 rounded-full bg-navy px-8 py-4 font-arabic text-base font-semibold text-cream shadow-glow-navy transition-all hover:bg-navy-light hover:shadow-glow-gold"
             >
-              اكتشف الآن
+              احجز استشارة مجانية
               <ArrowLeft className="h-5 w-5 transition-transform group-hover:-translate-x-1" />
             </a>
           </Magnetic>
           <Magnetic strength={0.4}>
             <a
-              href="#portfolio"
+              href="#products"
               className="inline-flex items-center gap-2 rounded-full border-2 border-navy/20 bg-white/60 px-8 py-4 font-arabic text-base font-semibold text-navy backdrop-blur transition-all hover:border-navy hover:bg-white"
             >
-              <ShieldCheck className="h-5 w-5 text-gold" />
-              معرض الأعمال
+              <MonitorSpeaker className="h-5 w-5 text-gold" />
+              تصفح المتجر
+            </a>
+          </Magnetic>
+          <Magnetic strength={0.4}>
+            <a
+              href="#contact"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-gold/40 bg-gold/10 px-8 py-4 font-arabic text-base font-semibold text-navy backdrop-blur transition-all hover:border-gold hover:bg-gold/20"
+            >
+              <FileText className="h-5 w-5 text-gold" />
+              اطلب عرض سعر
             </a>
           </Magnetic>
         </motion.div>

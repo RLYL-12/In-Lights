@@ -12,22 +12,22 @@ const VALUES = [
   {
     icon: Target,
     title: "رسالتنا",
-    desc: "تقديم حلول إضاءة مبتكرة وعالية الجودة تُسعد عملاءنا وتُضيء مساحاتهم بأناقة وكفاءة.",
+    desc: "خلق تجارب استثنائية تتجاوز توقعات عملائنا وتُضيء فعالياتهم بإبداع.",
   },
   {
     icon: Eye,
     title: "رؤيتنا",
-    desc: "أن نكون الشركة الرائدة في عالم الإضاءة المتكاملة بالمنطقة، نُلهم بتصاميمنا ونُحدث فرقاً.",
+    desc: "أن نكون الشريك الأول للفعاليات في المنطقة، نُلهم ونُبتكر في كل تفصيلة.",
   },
   {
     icon: Award,
     title: "قيمنا",
-    desc: "الجودة، الابتكار، والالتزام — مبادئ نُبني عليها كل مشروع ونتعامل بها مع كل عميل.",
+    desc: "الاحترافية، الابتكار، والالتزام — مبادئ نُبنى عليها كل فعالية.",
   },
   {
     icon: Users,
     title: "فريقنا",
-    desc: "نخبة من المخططين والمصممين والمهندسين شغوفين بإضاءة العالم بأناقة وحرفية.",
+    desc: "نخبة من منظمي الفعاليات والمصممين والمهندسين شغوفين بإطلاق تجارب لا تُنسى.",
   },
 ];
 
@@ -70,7 +70,7 @@ export function About() {
                       In Lights
                     </div>
                     <div className="font-arabic text-sm text-gold-light">
-                      شركة الإضاءة المتكاملة
+                      الفعاليات والتجهيزات التقنية
                     </div>
                     <div className="mt-4 flex items-center justify-center gap-2">
                       {[0, 1, 2, 3, 4].map((i) => (
@@ -89,8 +89,8 @@ export function About() {
                 transition={{ delay: 0.4, type: "spring" }}
                 className="absolute -left-4 top-12 rounded-2xl bg-white p-3 shadow-glow-navy"
               >
-                <div className="font-display text-2xl font-bold text-navy">+12</div>
-                <div className="font-arabic text-xs text-muted-foreground">سنة خبرة</div>
+                <div className="font-display text-2xl font-bold text-navy">+300</div>
+                <div className="font-arabic text-xs text-muted-foreground">فعالية</div>
               </motion.div>
 
               <motion.div
@@ -100,8 +100,8 @@ export function About() {
                 transition={{ delay: 0.6, type: "spring" }}
                 className="absolute -right-4 bottom-16 rounded-2xl bg-gold p-3 shadow-glow-gold"
               >
-                <div className="font-display text-2xl font-bold text-navy">+300</div>
-                <div className="font-arabic text-xs text-navy">عميل سعيد</div>
+                <div className="font-display text-2xl font-bold text-navy">+150</div>
+                <div className="font-arabic text-xs text-navy">عميل</div>
               </motion.div>
             </motion.div>
           </div>
@@ -111,8 +111,8 @@ export function About() {
             <SectionHeading
               eyebrow="من نحن"
               align="start"
-              title="نُضيء حاضركم ونرسم مستقبلاً أكثر إشراقاً"
-              subtitle="إن لايتس (In Lights) شركة متخصصة في حلول الإضاءة المتكاملة، نجمع بين الخبرة والإبداع لنقدّم تصاميم إضاءة تتجاوز التوقعات. منذ أكثر من عقدٍ ونحن نُضيء المنازل والمشاريع التجارية بأحدث التقنيات وأرقى التصاميم."
+              title="نُحوّل رؤيتك إلى فعالية استثنائية"
+              subtitle="إن لايتس (Enlights) شركة متخصصة في إدارة وتجهيز الفعاليات والمعارض والمؤتمرات. نجمع بين الإبداع والخبرة لنقدّم تجارب استثنائية تضيء علامتك التجارية وتُبقي حضوراً لا يُنسى."
             />
 
             <StaggerGroup className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -140,7 +140,7 @@ export function About() {
                 href="#contact"
                 className="inline-flex items-center gap-2 rounded-full bg-navy px-7 py-3.5 font-arabic text-base font-semibold text-cream shadow-glow-navy transition-all hover:bg-navy-light hover:shadow-glow-gold"
               >
-                تعرّف على فريقنا أكثر
+                تعرّف على خدماتنا
               </a>
             </Reveal>
           </div>

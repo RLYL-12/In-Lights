@@ -7,10 +7,10 @@ import { Star } from "@/components/brand/Decorations";
 import { Reveal } from "@/components/motion/Reveal";
 
 const STATS = [
-  { value: 300, suffix: "+", label: "عميل سعيد", desc: "حول المملكة" },
-  { value: 150, suffix: "+", label: "مشروع منجز", desc: "بأعلى المعايير" },
+  { value: 300, suffix: "+", label: "فعالية منجزة", desc: "بنجاح وإتقان" },
+  { value: 150, suffix: "+", label: "عميل سعيد", desc: "حول المملكة" },
   { value: 98, suffix: "%", label: "رضا العملاء", desc: "تقييم مثبت" },
-  { value: 12, suffix: "+", label: "سنوات خبرة", desc: "في عالم الإضاءة" },
+  { value: 12, suffix: "+", label: "مدينة", desc: "تغطية جغرافية" },
 ];
 
 export function Stats() {
@@ -36,12 +36,15 @@ export function Stats() {
         <Reveal direction="up" className="mb-14 text-center">
           <span className="inline-flex items-center gap-2 font-arabic text-sm font-medium text-gold-light">
             <Star size={16} glow={false} />
-            هل تبحث عن حلول إن لايتس؟
+            لماذا Enlights؟
             <Star size={16} glow={false} />
           </span>
           <h2 className="mt-3 font-display text-3xl font-bold text-cream sm:text-4xl">
-            أرقامٌ تتحدّث عن ثقتكم بنا
+            أرقامٌ تتحدّث عن إنجازاتنا
           </h2>
+          <p className="mx-auto mt-3 max-w-2xl font-arabic text-base text-cream/70 sm:text-lg">
+            أكثر من عقدٍ من الخبرة في تنظيم الفعاليات وتجهيزها بأعلى المعايير.
+          </p>
         </Reveal>
 
         <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
@@ -80,7 +83,7 @@ export function Stats() {
         {/* Tagline */}
         <Reveal direction="up" delay={0.4} className="mt-12 text-center">
           <p className="font-arabic text-lg text-cream/80 sm:text-xl">
-            نقدّم حلولاً مبتكرة من خلال التكنولوجيا، لنُضيء حاضركم ونرسم مستقبلاً أكثر إشراقاً.
+            نُحوّل كل فعالية إلى تجربة استثنائية تضيء علامتك التجارية وتُبقي حضوراً لا يُنسى.
           </p>
         </Reveal>
       </div>
