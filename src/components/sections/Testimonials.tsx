@@ -9,14 +9,14 @@ import { Star } from "@/components/brand/Decorations";
 import { cn } from "@/lib/utils";
 
 const PARTNERS = [
+  "أرامكو",
+  "سابك",
+  "سيمبول",
+  "ساب",
   "الديار",
   "نخبة",
-  "أركان",
-  "المراكز",
   "روشن",
-  "البناء",
   "الإعمار",
-  "الواحة",
 ];
 
 const TESTIMONIALS = [

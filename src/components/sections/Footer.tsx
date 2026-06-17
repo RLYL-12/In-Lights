@@ -28,19 +28,19 @@ const FOOTER_LINKS = [
   {
     title: "المنتجات",
     links: [
-      { label: "أضواء LED", href: "#products" },
-      { label: "أضواء السقف", href: "#products" },
-      { label: "أضواء الجدار", href: "#products" },
-      { label: "أضواء الأرضية", href: "#products" },
+      { label: "إضاءة LED", href: "#products" },
+      { label: "إضاءة مخصصة", href: "#products" },
+      { label: "إضاءة احترافية", href: "#products" },
+      { label: "مراوح بإضاءة", href: "#products" },
     ],
   },
   {
-    title: "الدعم",
+    title: "المزيد",
     links: [
+      { label: "المدونة", href: "#blog" },
       { label: "الأسئلة الشائعة", href: "#faq" },
       { label: "تواصل معنا", href: "#contact" },
       { label: "الضمان", href: "#faq" },
-      { label: "طرق الدفع", href: "#faq" },
     ],
   },
 ];

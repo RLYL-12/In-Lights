@@ -63,6 +63,22 @@ const PROJECTS = [
     image: "/images/portfolio/project-6.png",
     year: "2024",
   },
+  {
+    id: 7,
+    title: "إضاءة مسجد ومساحات دينية",
+    category: "commercial",
+    location: "المدينة",
+    image: "/images/portfolio/project-7.png",
+    year: "2024",
+  },
+  {
+    id: 8,
+    title: "إضاءة منزل ذكي متكامل",
+    category: "residential",
+    location: "الرياض",
+    image: "/images/portfolio/project-8.png",
+    year: "2024",
+  },
 ];
 
 export function Portfolio() {

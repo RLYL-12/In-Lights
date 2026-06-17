@@ -10,9 +10,10 @@ const NAV_LINKS = [
   { href: "#home", label: "الرئيسية" },
   { href: "#about", label: "من نحن" },
   { href: "#features", label: "الميزات" },
-  { href: "#products", label: "المنتجات" },
+  { href: "#products", label: "المتجر" },
   { href: "#portfolio", label: "أعمالنا" },
   { href: "#testimonials", label: "آراء العملاء" },
+  { href: "#blog", label: "المدونة" },
   { href: "#faq", label: "الأسئلة" },
   { href: "#contact", label: "تواصل" },
 ];
