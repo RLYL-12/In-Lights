@@ -9,7 +9,7 @@ import {
 import { HelpCircle, MessageCircleQuestion } from "lucide-react";
 import { SectionHeading } from "@/components/brand/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
-import { Star } from "@/components/brand/Decorations";
+import { Star, ScrollArrow } from "@/components/brand/Decorations";
 
 const FAQS = [
   {
@@ -88,7 +88,7 @@ export function FAQ() {
               </p>
             </div>
             <a
-              href="#booking"
+              href="#contact"
               className="inline-flex items-center gap-2 rounded-full bg-cream px-6 py-3 font-arabic text-sm font-semibold text-navy transition-all hover:bg-gold-light"
             >
               <MessageCircleQuestion className="h-4 w-4" />
@@ -97,6 +97,7 @@ export function FAQ() {
           </div>
         </Reveal>
       </div>
+      <ScrollArrow href="#contact" />
     </section>
   );
 }

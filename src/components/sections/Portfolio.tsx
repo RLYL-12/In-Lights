@@ -13,6 +13,7 @@ import {
   Rocket,
 } from "lucide-react";
 import { SectionHeading } from "@/components/brand/SectionHeading";
+import { ScrollArrow } from "@/components/brand/Decorations";
 import { Reveal } from "@/components/motion/Reveal";
 import { cn } from "@/lib/utils";
 
@@ -191,7 +192,7 @@ export function Portfolio() {
         {/* CTA */}
         <Reveal direction="up" delay={0.3} className="mt-12 text-center">
           <a
-            href="#booking"
+            href="#contact"
             className="inline-flex items-center gap-2 rounded-full border-2 border-navy/20 px-8 py-3.5 font-arabic text-base font-semibold text-navy transition-all hover:border-navy hover:bg-navy hover:text-cream"
           >
             هل لديك فعالية قادمة؟ احجز الآن
@@ -199,6 +200,7 @@ export function Portfolio() {
           </a>
         </Reveal>
       </div>
+      <ScrollArrow href="#testimonials" />
     </section>
   );
 }

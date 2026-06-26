@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import { SectionHeading } from "@/components/brand/SectionHeading";
 import { Reveal, StaggerGroup, StaggerChild } from "@/components/motion/Reveal";
-import { Star } from "@/components/brand/Decorations";
+import { Star, ScrollArrow } from "@/components/brand/Decorations";
 import { toast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 
@@ -244,6 +244,7 @@ export function Contact() {
           </Reveal>
         </div>
       </div>
+      <ScrollArrow href="#footer" />
     </section>
   );
 }

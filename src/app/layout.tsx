@@ -1,28 +1,15 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Tajawal } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 
-/* Arabic display font — Thmanyah Serif Display (headings) */
-const thmanyahDisplay = localFont({
-  src: "../fonts/thmanyahserifdisplay-Regular.woff2",
-  variable: "--font-display",
+const tajawal = Tajawal({
+  weight: ["200", "300", "400", "500", "700", "800", "900"],
+  subsets: ["arabic"],
+  variable: "--font-tajawal",
   display: "swap",
 });
 
-/* Arabic body / text font — Thmanyah Sans */
-const thmanyahSans = localFont({
-  src: "../fonts/thmanyahsans-Regular.woff2",
-  variable: "--font-arabic",
-  display: "swap",
-});
-
-/* Amiri serif for elegant Arabic accents */
-const amiri = localFont({
-  src: "../fonts/Amiri-Regular.ttf",
-  variable: "--font-serif",
-  display: "swap",
-});
 
 export const metadata: Metadata = {
   title: "إن لايتس | In Lights — شركة الإضاءة المتكاملة",
@@ -59,7 +46,7 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" suppressHydrationWarning>
       <body
-        className={`${thmanyahDisplay.variable} ${thmanyahSans.variable} ${amiri.variable} font-arabic antialiased bg-background text-foreground`}
+        className={`${tajawal.variable} font-arabic antialiased bg-background text-foreground`}
       >
         {children}
         <Toaster />

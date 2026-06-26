@@ -1,12 +1,12 @@
 "use client";
 
-import { animate, useInView, useMotionValue, useTransform } from "framer-motion";
+import { animate, useInView, useMotionValue, useTransform, useMotionValueEvent } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 
 export function Counter({
   to,
   from = 0,
-  duration = 2.2,
+  duration = 2.5,
   suffix = "",
   prefix = "",
   className,
@@ -19,15 +19,15 @@ export function Counter({
   className?: string;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-40px" });
+  // Triggers when element is at least 100px into the viewport
+  const inView = useInView(ref, { once: true, margin: "0px 0px -100px 0px" });
   const count = useMotionValue(from);
   const rounded = useTransform(count, (v) => Math.round(v));
   const [display, setDisplay] = useState(from);
 
-  useEffect(() => {
-    const unsub = rounded.on("change", (v) => setDisplay(v));
-    return () => unsub();
-  }, [rounded]);
+  useMotionValueEvent(rounded, "change", (latest) => {
+    setDisplay(latest);
+  });
 
   useEffect(() => {
     if (inView) {

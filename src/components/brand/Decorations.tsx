@@ -182,3 +182,35 @@ export function WaveDivider({
     </div>
   );
 }
+
+/* ============ Section Divider ============ */
+export function SectionDivider({ className }: { className?: string }) {
+  return (
+    <div className={cn("w-full max-w-7xl mx-auto h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent", className)} />
+  );
+}
+
+/* ============ Scroll Arrow ============ */
+import { ChevronsDown } from "lucide-react";
+
+export function ScrollArrow({
+  href,
+  className,
+}: {
+  href: string;
+  className?: string;
+}) {
+  return (
+    <motion.a
+      href={href}
+      animate={{ y: [0, 15, 0] }}
+      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+      className={cn(
+        "absolute bottom-6 left-1/2 z-30 -translate-x-1/2 flex items-center justify-center text-gold transition-all hover:text-gold-light opacity-90 hover:opacity-100 drop-shadow-md",
+        className
+      )}
+    >
+      <ChevronsDown className="h-10 w-10 animate-pulse" strokeWidth={1.5} />
+    </motion.a>
+  );
+}

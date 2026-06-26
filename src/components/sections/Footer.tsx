@@ -12,8 +12,10 @@ import {
   Youtube,
   Facebook,
   ArrowUp,
+  ChevronLeft,
+  ChevronsUp,
 } from "lucide-react";
-import { BrandLockup, Logo } from "@/components/brand/Logo";
+import { BrandLockup } from "@/components/brand/Logo";
 import { Star } from "@/components/brand/Decorations";
 
 const FOOTER_LINKS = [
@@ -27,7 +29,7 @@ const FOOTER_LINKS = [
     ],
   },
   {
-    title: "المتجر",
+    title: "المنتج",
     links: [
       { label: "شاشات LED", href: "#products" },
       { label: "أنظمة صوت", href: "#products" },
@@ -39,7 +41,7 @@ const FOOTER_LINKS = [
     title: "المزيد",
     links: [
       { label: "المدونة", href: "#blog" },
-      { label: "احجز فعاليتك", href: "#booking" },
+      { label: "احجز فعاليتك", href: "#contact" },
       { label: "الأسئلة الشائعة", href: "#faq" },
       { label: "تواصل معنا", href: "#contact" },
     ],
@@ -47,84 +49,87 @@ const FOOTER_LINKS = [
 ];
 
 const SOCIAL = [
-  { icon: Instagram, label: "Instagram", href: "#" },
-  { icon: Twitter, label: "X", href: "#" },
-  { icon: Linkedin, label: "LinkedIn", href: "#" },
-  { icon: Youtube, label: "YouTube", href: "#" },
   { icon: Facebook, label: "Facebook", href: "#" },
+  { icon: Youtube, label: "YouTube", href: "#" },
+  { icon: Linkedin, label: "LinkedIn", href: "#" },
+  { icon: Twitter, label: "X", href: "#" },
+  { icon: Instagram, label: "Instagram", href: "#" },
 ];
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-navy text-cream">
-      {/* Top wave */}
+    <footer id="footer" className="relative overflow-hidden bg-navy text-cream">
+      {/* Top wave / Border */}
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
 
       {/* Decorative glow */}
-      <div className="absolute left-1/2 top-0 h-64 w-[600px] -translate-x-1/2 rounded-full bg-gold/5 blur-3xl" />
+      <div className="absolute -left-[200px] bottom-0 h-[400px] w-[400px] rounded-full bg-gold/5 blur-[100px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-12">
-          {/* Brand */}
-          <div className="lg:col-span-4">
+        
+        {/* Main Grid */}
+        <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
+          
+          {/* Brand & Contact (Right) */}
+          <div className="lg:col-span-4 flex flex-col items-start lg:items-end text-right">
             <BrandLockup variant="light" size={48} />
-            <p className="mt-5 max-w-sm font-arabic text-sm leading-relaxed text-cream/60">
+            <p className="mt-5 max-w-sm font-arabic text-sm leading-relaxed text-cream/70 text-right">
               إن لايتس (Enlights) — شركة متخصصة في إدارة وتجهيز الفعاليات
               والمعارض والمؤتمرات. نُحوّل رؤيتكم إلى تجارب استثنائية تُضيء
               علامتكم التجارية.
             </p>
 
             {/* Contact bits */}
-            <ul className="mt-6 space-y-2.5">
-              <li className="flex items-center gap-3 font-arabic text-sm text-cream/70">
-                <MapPin className="h-4 w-4 shrink-0 text-gold" />
+            <ul className="mt-8 space-y-4">
+              <li className="flex items-center justify-end gap-3 font-arabic text-sm text-cream/80">
                 طريق الملك فهد، الرياض، السعودية
+                <MapPin className="h-4 w-4 shrink-0 text-gold" strokeWidth={1.5} />
               </li>
-              <li className="flex items-center gap-3 font-arabic text-sm text-cream/70">
-                <Mail className="h-4 w-4 shrink-0 text-gold" />
+              <li className="flex items-center justify-end gap-3 font-arabic text-sm text-cream/80">
                 info@enlights.sa
+                <Mail className="h-4 w-4 shrink-0 text-gold" strokeWidth={1.5} />
               </li>
-              <li className="flex items-center gap-3 font-arabic text-sm text-cream/70">
-                <Phone className="h-4 w-4 shrink-0 text-gold" />
+              <li className="flex items-center justify-end gap-3 font-arabic text-sm text-cream/80">
                 <span dir="ltr">+966 11 234 5678</span>
+                <Phone className="h-4 w-4 shrink-0 text-gold" strokeWidth={1.5} />
               </li>
-              <li className="flex items-center gap-3 font-arabic text-sm text-cream/70">
-                <MessageCircle className="h-4 w-4 shrink-0 text-gold" />
-                واتساب: <span dir="ltr">+966 55 123 4567</span>
+              <li className="flex items-center justify-end gap-3 font-arabic text-sm text-cream/80">
+                <span dir="ltr">+966 55 123 4567</span>
+                <MessageCircle className="h-4 w-4 shrink-0 text-gold" strokeWidth={1.5} />
               </li>
             </ul>
 
             {/* Social */}
-            <div className="mt-6 flex gap-2">
+            <div className="mt-8 flex gap-3 justify-end w-full max-w-sm">
               {SOCIAL.map((s) => (
                 <a
                   key={s.label}
                   href={s.href}
                   aria-label={s.label}
-                  className="grid h-9 w-9 place-items-center rounded-full bg-cream/10 text-cream transition-all hover:bg-gold hover:text-navy hover:scale-110"
+                  className="grid h-10 w-10 place-items-center rounded-full bg-white/5 text-cream transition-all duration-300 hover:bg-gold hover:text-navy hover:scale-110 border border-white/10 hover:border-gold"
                 >
-                  <s.icon className="h-4 w-4" />
+                  <s.icon className="h-4 w-4" strokeWidth={1.5} />
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Link columns */}
+          {/* Link columns (Middle) */}
           {FOOTER_LINKS.map((col) => (
-            <div key={col.title} className="lg:col-span-2">
-              <h4 className="mb-4 flex items-center gap-2 font-display text-base font-bold text-cream">
-                <Star size={12} glow={false} />
+            <div key={col.title} className="lg:col-span-2 flex flex-col items-start lg:items-end">
+              <h4 className="mb-6 flex items-center justify-end gap-2 font-display text-base font-bold text-cream w-full">
                 {col.title}
+                <Star size={12} glow={false} />
               </h4>
-              <ul className="space-y-2.5">
+              <ul className="space-y-4 w-full flex flex-col items-start lg:items-end">
                 {col.links.map((l) => (
                   <li key={l.label}>
                     <a
                       href={l.href}
-                      className="group inline-flex items-center gap-1.5 font-arabic text-sm text-cream/60 transition-colors hover:text-gold-light"
+                      className="group flex items-center justify-end gap-2 font-arabic text-sm text-cream/60 transition-colors hover:text-gold-light"
                     >
-                      <span className="h-px w-0 bg-gold transition-all duration-300 group-hover:w-3" />
                       {l.label}
+                      <span className="h-1.5 w-1.5 rounded-full bg-gold/80" />
                     </a>
                   </li>
                 ))}
@@ -132,72 +137,71 @@ export function Footer() {
             </div>
           ))}
 
-          {/* Newsletter / mini CTA */}
-          <div className="lg:col-span-2">
-            <h4 className="mb-4 flex items-center gap-2 font-display text-base font-bold text-cream">
-              <Star size={12} glow={false} />
+          {/* Newsletter / mini CTA (Left) */}
+          <div className="lg:col-span-2 flex flex-col items-start lg:items-end">
+            <h4 className="mb-6 flex items-center justify-end gap-2 font-display text-base font-bold text-cream w-full">
               ابقَ على اطلاع
+              <Star size={12} glow={false} />
             </h4>
-            <p className="mb-3 font-arabic text-sm text-cream/60">
+            <p className="mb-6 font-arabic text-sm text-cream/60 text-right w-full">
               نشرة شهرية، أحدث الفعاليات والعروض.
             </p>
             <form
               onSubmit={(e) => e.preventDefault()}
-              className="flex flex-col gap-2"
+              className="flex flex-col gap-4 w-full max-w-xs"
             >
-              <input
-                type="email"
-                placeholder="بريدك الإلكتروني"
-                dir="ltr"
-                className="w-full rounded-full border border-cream/20 bg-cream/5 px-4 py-2.5 text-right font-arabic text-sm text-cream outline-none transition-all placeholder:text-cream/40 focus:border-gold focus:bg-cream/10"
-              />
+              <div className="relative">
+                <input
+                  type="email"
+                  placeholder="بريدك الإلكتروني"
+                  dir="ltr"
+                  className="w-full rounded-full border border-cream/10 bg-white/5 py-3 pl-4 pr-10 text-right font-arabic text-sm text-cream outline-none transition-all placeholder:text-cream/40 hover:border-cream/20 focus:border-gold focus:bg-white/10"
+                />
+                <Mail className="absolute right-4 top-1/2 -translate-y-1/2 h-4 w-4 text-cream/40" strokeWidth={1.5} />
+              </div>
               <button
                 type="submit"
-                className="rounded-full bg-gold px-4 py-2.5 font-arabic text-sm font-bold text-navy transition-all hover:bg-gold-light"
+                className="group relative flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-gold-light to-gold px-4 py-3 font-arabic text-sm font-bold text-navy transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-gold/20"
               >
                 اشترك الآن
+                <ChevronLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" strokeWidth={2} />
               </button>
             </form>
           </div>
         </div>
 
         {/* Divider */}
-        <div className="my-10 h-px bg-gradient-to-r from-transparent via-cream/15 to-transparent" />
+        <div className="my-8 h-px bg-cream/10" />
 
         {/* Bottom bar */}
-        <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-          <p className="font-arabic text-xs text-cream/50">
+        <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
+          
+          {/* Copyright (Right) */}
+          <div className="flex items-center gap-2 font-arabic text-sm text-cream/50 order-3 md:order-1">
             © {new Date().getFullYear()} إن لايتس (Enlights) — جميع الحقوق محفوظة.
-          </p>
-          <div className="flex items-center gap-4">
-            <a href="#" className="font-arabic text-xs text-cream/50 transition-colors hover:text-gold-light">
+            <Star size={10} glow={false} className="text-gold" />
+          </div>
+
+          {/* Links (Center) */}
+          <div className="flex items-center gap-6 order-2">
+            <a href="#" className="font-arabic text-sm text-cream/50 transition-colors hover:text-gold-light">
               سياسة الخصوصية
             </a>
             <span className="text-cream/20">|</span>
-            <a href="#" className="font-arabic text-xs text-cream/50 transition-colors hover:text-gold-light">
+            <a href="#" className="font-arabic text-sm text-cream/50 transition-colors hover:text-gold-light">
               الشروط والأحكام
             </a>
           </div>
-          {/* Back to top */}
+
           <motion.a
             href="#home"
             whileHover={{ y: -3 }}
-            className="inline-flex items-center gap-2 rounded-full border border-cream/20 px-4 py-2 font-arabic text-xs text-cream/70 transition-all hover:border-gold hover:text-gold-light"
+            className="inline-flex items-center gap-2 rounded-full border border-cream/10 bg-white/5 px-6 py-2.5 font-arabic text-sm font-medium text-cream transition-all hover:border-gold hover:bg-gold/5 hover:text-gold-light order-1 md:order-3"
           >
-            <ArrowUp className="h-3.5 w-3.5" />
-            للأعلى
+            الأعلى
+            <ChevronsUp className="h-4 w-4" strokeWidth={1.5} />
           </motion.a>
         </div>
-      </div>
-
-      {/* Bottom strip with logo watermark */}
-      <div className="relative overflow-hidden border-t border-cream/10 py-4">
-        <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-[0.04]">
-          <Logo size={120} />
-        </div>
-        <p className="relative z-10 text-center font-arabic text-xs text-cream/40">
-          صُنع بشغفٍ وإتقان • Enlights ✦
-        </p>
       </div>
     </footer>
   );

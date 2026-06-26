@@ -1,19 +1,19 @@
 import { Navbar } from "@/components/sections/Navbar";
 import { Hero } from "@/components/sections/Hero";
-import { About } from "@/components/sections/About";
+import { AboutOverview } from "@/components/sections/AboutOverview";
 import { Features } from "@/components/sections/Features";
 import { Products } from "@/components/sections/Products";
-import { Booking } from "@/components/sections/Booking";
 import { Portfolio } from "@/components/sections/Portfolio";
-import { Stats } from "@/components/sections/Stats";
-import { WorkProcess } from "@/components/sections/WorkProcess";
+
 import { Testimonials } from "@/components/sections/Testimonials";
 import { FAQ } from "@/components/sections/FAQ";
 import { Blog } from "@/components/sections/Blog";
-import { CTA } from "@/components/sections/CTA";
+
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
 import { ScrollProgress } from "@/components/motion/ScrollProgress";
+import { SectionDivider } from "@/components/brand/Decorations";
+
 
 export default function Home() {
   return (
@@ -22,17 +22,29 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         <Hero />
-        <About />
+        
+        <SectionDivider className="my-8" />
+        <AboutOverview />
+        
+        <SectionDivider className="my-8" />
         <Features />
+        
+        <SectionDivider className="my-8" />
         <Products />
-        <Booking />
+        
+        <SectionDivider className="my-8" />
         <Portfolio />
-        <Stats />
-        <WorkProcess />
+
+        <SectionDivider className="my-8" />
         <Testimonials />
+        
+        <SectionDivider className="my-8" />
         <FAQ />
-        <Blog />
-        <CTA />
+        
+        {/* <SectionDivider className="my-8" />
+        <Blog /> */}
+
+        <SectionDivider className="my-8" />
         <Contact />
       </main>
       <Footer />
