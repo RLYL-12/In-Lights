@@ -335,10 +335,15 @@ export function Products() {
                           </ul>
 
                           {/* CTA Button */}
-                          <button className="group/btn flex w-full items-center justify-center gap-2 rounded-full bg-navy/[0.03] px-5 py-4 font-arabic text-sm font-bold text-navy transition-all duration-300 hover:bg-navy hover:text-white hover:shadow-[0_8px_20px_-8px_rgba(20,14,106,0.4)]">
+                          <a 
+                            href="https://salla.sa/inlights/pAwKrYX"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="group/btn flex w-full items-center justify-center gap-2 rounded-full bg-navy/[0.03] px-5 py-4 font-arabic text-sm font-bold text-navy transition-all duration-300 hover:bg-navy hover:text-white hover:shadow-[0_8px_20px_-8px_rgba(20,14,106,0.4)]"
+                          >
                             احجز الآن
                             <ArrowUpLeft className="h-[18px] w-[18px] transition-transform group-hover/btn:-translate-x-1" strokeWidth={2} />
-                          </button>
+                          </a>
                         </div>
                       </div>
                     </motion.div>
