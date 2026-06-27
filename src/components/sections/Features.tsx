@@ -1,32 +1,67 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Check, MonitorPlay, Laptop, CalendarCheck, Inbox, PenTool, Settings, Activity } from "lucide-react";
+import { Check, Heart, Gift, Baby, Store, Award, BookOpen, Flag, Inbox, PenTool, Settings, Activity } from "lucide-react";
 import { SectionHeading } from "@/components/brand/SectionHeading";
 import { Reveal, StaggerGroup, StaggerChild } from "@/components/motion/Reveal";
 import { Star, ScrollArrow } from "@/components/brand/Decorations";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const SERVICES = [
   {
-    icon: CalendarCheck,
+    icon: Heart,
     step: "01",
-    title: "إدارة الفعاليات",
-    desc: "إدارة وتنظيم فعاليات متكاملة بأعلى معايير الاحترافية",
-    items: ["مؤتمرات", "معارض", "حفلات إطلاق المنتجات", "فعاليات الشركات"],
+    title: "صالة أفراح النساء",
+    desc: "خدمات متكاملة لتجهيز صالات الأفراح النسائية بأعلى المعايير.",
+    items: ["القاعة", "التقديمات", "الضيافة", "التوزيعات", "البوفيه", "تنسيق الكوشة", "الشاشة", "التصوير", "ركن القهوة", "مفتشات الجوال"],
   },
   {
-    icon: MonitorPlay,
+    icon: Gift,
     step: "02",
-    title: "الإنتاج والتجهيز",
-    desc: "تجهيزات تقنية متكاملة لإضاءة فعالياتكم بأبهى صورة",
-    items: ["شاشات LED", "أنظمة الصوت", "الإضاءة الاحترافية", "المسرح"],
+    title: "أعياد الميلاد",
+    desc: "تجهيز وتنظيم حفلات أعياد الميلاد بكل تفاصيلها لإسعادكم.",
+    items: ["القاعة", "التقديمات", "التوزيعات", "البوفيه", "الضيافة", "العروض والفرق", "التصوير", "الصوتيات", "ركن القهوة"],
   },
   {
-    icon: Laptop,
+    icon: Baby,
     step: "03",
-    title: "الحلول الرقمية",
-    desc: "حلول رقمية مبتكرة لإدارة فعالياتكم بكفاءة",
-    items: ["التسجيل الإلكتروني", "إدارة الحضور", "تطبيقات الفعاليات", "البث المباشر"],
+    title: "تحديد جنس الجنين والسابع",
+    desc: "تنظيم حفلات السابع وتحديد جنس الجنين بلمسات إبداعية ومبتكرة.",
+    items: ["القاعة", "التصوير", "الضيافة", "التقديمات", "التوزيعات", "فرقة ترفيهية للأطفال", "الصوتيات"],
+  },
+  {
+    icon: Store,
+    step: "04",
+    title: "افتتاح المعارض",
+    desc: "تجهيزات احترافية لافتتاح المعارض تبرز علامتكم التجارية بأفضل صورة.",
+    items: ["سجاد الخزامى", "الدي جي والفرق الشعبية", "التصوير", "المايكات", "الضيافة", "مدخل الاستيج", "الشخصيات الهوائية العملاقة", "الإضاءات"],
+  },
+  {
+    icon: Award,
+    step: "05",
+    title: "حفلات التكريم والترقية",
+    desc: "إدارة وتجهيز حفلات التكريم والترقيات بمستوى عالٍ من الرقي والفخامة.",
+    items: ["القاعة", "الضيافة", "البوفيه", "المايكات والصوتيات", "الفرق الشعبية", "التصوير", "الاستيج"],
+  },
+  {
+    icon: BookOpen,
+    step: "06",
+    title: "عودة الطلاب للمدارس",
+    desc: "فعاليات ترفيهية مميزة لاستقبال الطلاب في بداية العام الدراسي.",
+    items: ["مدخل بالونات", "فرقة ترفيهية للأطفال", "ركن تصوير", "شخصيات كرتونية", "سجاد خزامى"],
+  },
+  {
+    icon: Flag,
+    step: "07",
+    title: "اليوم الوطني ويوم التأسيس",
+    desc: "تنظيم فعاليات وطنية تعكس الهوية السعودية الأصيلة والتراث.",
+    items: ["الفرق الشعبية", "التوزيعات الوطنية", "الضيافة التراثية", "التصوير", "تنسيق الديكورات الوطنية", "الصوتيات"],
   },
 ];
 
@@ -68,59 +103,81 @@ export function Features() {
         <SectionHeading
           eyebrow="خدماتنا"
           title="حلول متكاملة لفعالياتكم"
-          subtitle="من إدارة الفعاليات إلى التجهيزات التقنية والحلول الرقمية — نقدّم كل ما تحتاجونه لفعالية ناجحة."
+          subtitle="نقدم مجموعة واسعة ومتكاملة من الخدمات لتنظيم وتجهيز كافة المناسبات والفعاليات بأعلى معايير الاحترافية."
         />
 
-        {/* --- MAIN SERVICES CARDS --- */}
-        <StaggerGroup className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {SERVICES.map((s) => (
-            <StaggerChild key={s.step}>
-              <div className="group relative flex h-full flex-col overflow-hidden rounded-[28px] border border-navy/5 bg-white p-8 shadow-[0_8px_30px_-12px_rgba(20,14,106,0.06)] transition-all duration-300 hover:-translate-y-2 hover:border-gold/20 hover:shadow-[0_20px_40px_-12px_rgba(20,14,106,0.12)]">
-                
-                {/* Huge Transparent Number */}
-                <div className="pointer-events-none absolute left-6 top-4 select-none font-display text-[80px] font-bold leading-none text-navy/[0.04] transition-colors duration-500 group-hover:text-navy/[0.08]">
-                  {s.step}
-                </div>
+        {/* --- MAIN SERVICES CARDS (CAROUSEL) --- */}
+        <div className="mt-16 w-full px-4 sm:px-12 lg:px-16">
+          <Carousel
+            opts={{
+              align: "start",
+              direction: "rtl",
+            }}
+            className="w-full relative"
+          >
+            <CarouselContent className="-ml-4 py-8">
+              {SERVICES.map((s, idx) => (
+                <CarouselItem key={s.step} className="pl-4 md:basis-1/2 lg:basis-1/3 h-auto">
+                  <Reveal delay={idx * 0.1} className="h-full">
+                    <div className="group relative flex h-full flex-col overflow-hidden rounded-[28px] border border-navy/5 bg-white p-8 shadow-[0_8px_30px_-12px_rgba(20,14,106,0.06)] transition-all duration-300 hover:-translate-y-2 hover:border-gold/20 hover:shadow-[0_20px_40px_-12px_rgba(20,14,106,0.12)]">
+                      
+                      {/* Huge Transparent Number */}
+                      <div className="pointer-events-none absolute left-6 top-4 select-none font-display text-[80px] font-bold leading-none text-navy/[0.04] transition-colors duration-500 group-hover:text-navy/[0.08]">
+                        {s.step}
+                      </div>
 
-                {/* Arch Icon on the Top Right */}
-                <div className="relative mb-10 flex justify-end">
-                  <div className="relative">
-                    <div className="grid h-[72px] w-[60px] place-items-center rounded-t-full rounded-b-xl bg-navy text-cream shadow-md transition-transform duration-500 group-hover:-translate-y-1">
-                      <s.icon className="h-7 w-7" strokeWidth={1.5} />
+                      {/* Arch Icon on the Top Right */}
+                      <div className="relative mb-10 flex justify-end">
+                        <div className="relative">
+                          <div className="grid h-[72px] w-[60px] place-items-center rounded-t-full rounded-b-xl bg-navy text-cream shadow-md transition-transform duration-500 group-hover:-translate-y-1">
+                            <s.icon className="h-7 w-7" strokeWidth={1.5} />
+                          </div>
+                          <Star
+                            size={20}
+                            className="absolute -right-3 top-2 text-gold opacity-100 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12"
+                            animate
+                          />
+                        </div>
+                      </div>
+
+                      {/* Title & Description */}
+                      <div className="relative z-10 flex flex-1 flex-col text-right">
+                        <h3 className="mb-3 font-display text-2xl font-bold text-navy">
+                          {s.title}
+                        </h3>
+                        <p className="mb-4 font-arabic text-sm leading-relaxed text-navy/60">
+                          {s.desc}
+                        </p>
+
+                        {/* Checklist */}
+                        <ul className="mt-2 space-y-3">
+                          {s.items.map((item) => (
+                            <li key={item} className="flex items-center justify-start gap-3 font-arabic text-sm text-navy/80">
+                              <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-gold/15 text-gold">
+                                <Check className="h-3 w-3" strokeWidth={3} />
+                              </span>
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
-                    <Star
-                      size={20}
-                      className="absolute -right-3 top-2 text-gold opacity-100 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-12"
-                      animate
-                    />
-                  </div>
-                </div>
-
-                {/* Title & Description */}
-                <div className="relative z-10 flex flex-1 flex-col text-right">
-                  <h3 className="mb-3 font-display text-2xl font-bold text-navy">
-                    {s.title}
-                  </h3>
-                  <p className="mb-8 font-arabic text-sm leading-relaxed text-navy/60">
-                    {s.desc}
-                  </p>
-
-                  {/* Checklist */}
-                  <ul className="mt-auto space-y-3">
-                    {s.items.map((item) => (
-                      <li key={item} className="flex items-center justify-start gap-3 font-arabic text-sm text-navy/80">
-                        <span className="grid h-5 w-5 shrink-0 place-items-center rounded-full bg-gold/15 text-gold">
-                          <Check className="h-3 w-3" strokeWidth={3} />
-                        </span>
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </StaggerChild>
-          ))}
-        </StaggerGroup>
+                  </Reveal>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            
+            {/* Carousel Navigation (Sides) */}
+            <CarouselPrevious 
+              className="absolute left-auto -right-4 sm:-right-10 lg:-right-14 top-1/2 -translate-y-1/2 size-12 bg-white hover:bg-gold hover:text-white border-navy/10 hover:border-gold transition-colors shadow-md z-10" 
+              style={{ transform: "translateY(-50%) scaleX(-1)" }}
+            />
+            <CarouselNext 
+              className="absolute right-auto -left-4 sm:-left-10 lg:-left-14 top-1/2 -translate-y-1/2 size-12 bg-white hover:bg-gold hover:text-white border-navy/10 hover:border-gold transition-colors shadow-md z-10" 
+              style={{ transform: "translateY(-50%) scaleX(-1)" }}
+            />
+          </Carousel>
+        </div>
 
         {/* --- HORIZONTAL WORKFLOW --- */}
         <div className="mt-32">

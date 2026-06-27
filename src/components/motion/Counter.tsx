@@ -19,8 +19,8 @@ export function Counter({
   className?: string;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
-  // Triggers when element is at least 100px into the viewport
-  const inView = useInView(ref, { once: true, margin: "0px 0px -100px 0px" });
+  // Trigger when element enters viewport. once: false means it can trigger again.
+  const inView = useInView(ref, { once: false, margin: "0px 0px -100px 0px" });
   const count = useMotionValue(from);
   const rounded = useTransform(count, (v) => Math.round(v));
   const [display, setDisplay] = useState(from);
@@ -36,8 +36,11 @@ export function Counter({
         ease: [0.22, 1, 0.36, 1],
       });
       return controls.stop;
+    } else {
+      // Reset to zero when out of view
+      count.set(from);
     }
-  }, [inView, to, duration, count]);
+  }, [inView, to, duration, count, from]);
 
   return (
     <span ref={ref} className={className}>

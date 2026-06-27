@@ -66,7 +66,7 @@ export function Navbar() {
         )}
       >
         <nav className="mx-auto flex max-w-[1400px] items-center justify-between px-6 sm:px-8 lg:px-12">
-          <BrandLockup variant="dark" size={42} />
+          <BrandLockup variant="dark" size={70} />
 
           <ul className="hidden lg:flex items-center gap-6">
             {NAV_LINKS.map((link) => {

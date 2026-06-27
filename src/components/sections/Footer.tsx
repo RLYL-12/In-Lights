@@ -23,9 +23,11 @@ const FOOTER_LINKS = [
     title: "الشركة",
     links: [
       { label: "من نحن", href: "#about" },
-      { label: "خدماتنا", href: "#features" },
+      { label: "خدماتنا", href: "#services" },
       { label: "أعمالنا", href: "#portfolio" },
       { label: "آراء العملاء", href: "#testimonials" },
+      { label: "المدونة", href: "#blog" },
+      { label: "الأسئلة الشائعة", href: "#faq" },
     ],
   },
   {
@@ -35,15 +37,6 @@ const FOOTER_LINKS = [
       { label: "أنظمة صوت", href: "#products" },
       { label: "أجهزة ترجمة", href: "#products" },
       { label: "إضاءة احترافية", href: "#products" },
-    ],
-  },
-  {
-    title: "المزيد",
-    links: [
-      { label: "المدونة", href: "#blog" },
-      { label: "احجز فعاليتك", href: "#contact" },
-      { label: "الأسئلة الشائعة", href: "#faq" },
-      { label: "تواصل معنا", href: "#contact" },
     ],
   },
 ];
@@ -70,37 +63,17 @@ export function Footer() {
         {/* Main Grid */}
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
           
-          {/* Brand & Contact (Right) */}
-          <div className="lg:col-span-4 flex flex-col items-start lg:items-end text-right">
-            <BrandLockup variant="light" size={48} />
-            <p className="mt-5 max-w-sm font-arabic text-sm leading-relaxed text-cream/70 text-right">
+          {/* Brand & Socials (Right) */}
+          <div className="lg:col-span-3 flex flex-col items-start text-right">
+            <BrandLockup variant="light" size={130} />
+            <p className="mt-4 max-w-sm font-arabic text-sm leading-relaxed text-cream/70 text-right">
               إن لايتس (Enlights) — شركة متخصصة في إدارة وتجهيز الفعاليات
               والمعارض والمؤتمرات. نُحوّل رؤيتكم إلى تجارب استثنائية تُضيء
               علامتكم التجارية.
             </p>
 
-            {/* Contact bits */}
-            <ul className="mt-8 space-y-4">
-              <li className="flex items-center justify-end gap-3 font-arabic text-sm text-cream/80">
-                طريق الملك فهد، الرياض، السعودية
-                <MapPin className="h-4 w-4 shrink-0 text-gold" strokeWidth={1.5} />
-              </li>
-              <li className="flex items-center justify-end gap-3 font-arabic text-sm text-cream/80">
-                info@enlights.sa
-                <Mail className="h-4 w-4 shrink-0 text-gold" strokeWidth={1.5} />
-              </li>
-              <li className="flex items-center justify-end gap-3 font-arabic text-sm text-cream/80">
-                <span dir="ltr">+966 11 234 5678</span>
-                <Phone className="h-4 w-4 shrink-0 text-gold" strokeWidth={1.5} />
-              </li>
-              <li className="flex items-center justify-end gap-3 font-arabic text-sm text-cream/80">
-                <span dir="ltr">+966 55 123 4567</span>
-                <MessageCircle className="h-4 w-4 shrink-0 text-gold" strokeWidth={1.5} />
-              </li>
-            </ul>
-
             {/* Social */}
-            <div className="mt-8 flex gap-3 justify-end w-full max-w-sm">
+            <div className="mt-6 flex gap-3 justify-start w-full max-w-sm">
               {SOCIAL.map((s) => (
                 <a
                   key={s.label}
@@ -114,22 +87,48 @@ export function Footer() {
             </div>
           </div>
 
+          {/* Contact (Middle Right) */}
+          <div className="lg:col-span-3 flex flex-col items-start">
+            <h4 className="mb-6 flex items-center justify-start gap-2 font-display text-base font-bold text-cream w-full">
+              <Star size={12} glow={false} className="ml-2" />
+              تواصل معنا
+            </h4>
+            <ul className="space-y-4 w-full flex flex-col items-start">
+              <li className="flex items-start justify-start gap-3 font-arabic text-sm text-cream/80">
+                <MapPin className="mt-1 h-4 w-4 shrink-0 text-gold" strokeWidth={1.5} />
+                <span>طريق الملك فهد، الرياض، السعودية</span>
+              </li>
+              <li className="flex items-center justify-start gap-3 font-arabic text-sm text-cream/80">
+                <Mail className="h-4 w-4 shrink-0 text-gold" strokeWidth={1.5} />
+                <span dir="ltr" className="text-left">info@enlights.sa</span>
+              </li>
+              <li className="flex items-center justify-start gap-3 font-arabic text-sm text-cream/80">
+                <Phone className="h-4 w-4 shrink-0 text-gold" strokeWidth={1.5} />
+                <span dir="ltr" className="text-left">+966 11 234 5678</span>
+              </li>
+              <li className="flex items-center justify-start gap-3 font-arabic text-sm text-cream/80">
+                <MessageCircle className="h-4 w-4 shrink-0 text-gold" strokeWidth={1.5} />
+                <span dir="ltr" className="text-left">+966 55 123 4567</span>
+              </li>
+            </ul>
+          </div>
+
           {/* Link columns (Middle) */}
           {FOOTER_LINKS.map((col) => (
-            <div key={col.title} className="lg:col-span-2 flex flex-col items-start lg:items-end">
-              <h4 className="mb-6 flex items-center justify-end gap-2 font-display text-base font-bold text-cream w-full">
+            <div key={col.title} className="lg:col-span-2 flex flex-col items-start">
+              <h4 className="mb-6 flex items-center justify-start gap-2 font-display text-base font-bold text-cream w-full">
+                <Star size={12} glow={false} className="ml-2" />
                 {col.title}
-                <Star size={12} glow={false} />
               </h4>
-              <ul className="space-y-4 w-full flex flex-col items-start lg:items-end">
+              <ul className="space-y-4 w-full flex flex-col items-start">
                 {col.links.map((l) => (
                   <li key={l.label}>
                     <a
                       href={l.href}
-                      className="group flex items-center justify-end gap-2 font-arabic text-sm text-cream/60 transition-colors hover:text-gold-light"
+                      className="group flex items-center justify-start gap-2 font-arabic text-sm text-cream/60 transition-colors hover:text-gold-light"
                     >
-                      {l.label}
                       <span className="h-1.5 w-1.5 rounded-full bg-gold/80" />
+                      {l.label}
                     </a>
                   </li>
                 ))}
@@ -138,10 +137,10 @@ export function Footer() {
           ))}
 
           {/* Newsletter / mini CTA (Left) */}
-          <div className="lg:col-span-2 flex flex-col items-start lg:items-end">
-            <h4 className="mb-6 flex items-center justify-end gap-2 font-display text-base font-bold text-cream w-full">
+          <div className="lg:col-span-2 flex flex-col items-start">
+            <h4 className="mb-6 flex items-center justify-start gap-2 font-display text-base font-bold text-cream w-full">
+              <Star size={12} glow={false} className="ml-2" />
               ابقَ على اطلاع
-              <Star size={12} glow={false} />
             </h4>
             <p className="mb-6 font-arabic text-sm text-cream/60 text-right w-full">
               نشرة شهرية، أحدث الفعاليات والعروض.

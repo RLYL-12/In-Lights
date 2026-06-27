@@ -29,10 +29,10 @@ const CATEGORIES = [
 const PROJECTS = [
   {
     id: 1,
-    title: "معرض التقنية السنوي",
+    title: "مهرجان قناديل",
     category: "exhibition",
     location: "الرياض",
-    image: "/images/portfolio/project-1.png",
+    image: "/images/portfolio/qandeel-festival.png",
     year: "2024",
   },
   {
