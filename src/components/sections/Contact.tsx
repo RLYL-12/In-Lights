@@ -60,19 +60,23 @@ export function Contact() {
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    // We do NOT preventDefault here. We let the browser submit the form natively to the hidden iframe!
     setLoading(true);
-    // Simulate submission
-    await new Promise((r) => setTimeout(r, 1200));
-    setLoading(false);
-    setSent(true);
-    toast({
-      title: "تم إرسال رسالتك بنجاح! ✨",
-      description: "سيتواصل معك فريقنا في أقرب وقت ممكن.",
-    });
-    (e.target as HTMLFormElement).reset();
-    setTimeout(() => setSent(false), 4000);
+
+    const form = e.currentTarget;
+    
+    // Simulate the time it takes to submit
+    setTimeout(() => {
+      setLoading(false);
+      setSent(true);
+      toast({
+        title: "تم إرسال رسالتك بنجاح! ✨",
+        description: "سيتواصل معك فريقنا في أقرب وقت ممكن.",
+      });
+      form.reset();
+      setTimeout(() => setSent(false), 4000);
+    }, 1500);
   }
 
   return (
@@ -137,10 +141,19 @@ export function Contact() {
 
           {/* Form */}
           <Reveal direction="up" delay={0.2} className="lg:col-span-3">
+            <iframe name="hidden_iframe" id="hidden_iframe" style={{ display: "none" }}></iframe>
             <form
+              action="https://formsubmit.co/info@inlights-sa.com"
+              method="POST"
+              target="hidden_iframe"
               onSubmit={handleSubmit}
-              className="relative overflow-hidden rounded-3xl border border-navy/10 bg-white p-6 shadow-glow-navy sm:p-8"
+              className="relative overflow-hidden rounded-3xl border border-navy/10 bg-white p-6 shadow-glow-navy sm:p-8 min-h-[400px] flex flex-col justify-center"
             >
+              {/* FormSubmit Hidden Fields */}
+              <input type="hidden" name="_subject" value="New Project Inquiry" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+
               {/* Decorative star */}
               <Star
                 size={20}
@@ -148,98 +161,126 @@ export function Contact() {
                 animate
               />
 
-              <h3 className="mb-6 font-display text-xl font-bold text-navy">
-                أرسل لنا رسالة
-              </h3>
+              {sent ? (
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  className="flex flex-col items-center justify-center py-12 text-center"
+                >
+                  <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gold/10 text-gold shadow-glow-gold">
+                    <CheckCircle2 className="h-10 w-10" />
+                  </div>
+                  <h3 className="font-display text-2xl font-bold text-navy">تم إرسال رسالتك بنجاح! ✨</h3>
+                  <p className="mt-3 font-arabic text-navy/70 text-lg">سيتواصل معك فريقنا في أقرب وقت ممكن.</p>
+                </motion.div>
+              ) : (
+                <>
+                  <h3 className="mb-6 font-display text-xl font-bold text-navy">
+                    أرسل لنا رسالة
+                  </h3>
 
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div>
-                  <label className="mb-1.5 block font-arabic text-sm font-medium text-navy">
-                    الاسم الكامل
-                  </label>
-                  <input
-                    required
-                    type="text"
-                    placeholder="اكتب اسمك"
-                    className="w-full rounded-xl border border-navy/15 bg-cream/40 px-4 py-3 font-arabic text-sm text-navy outline-none transition-all placeholder:text-navy/40 focus:border-gold focus:bg-white focus:ring-2 focus:ring-gold/20"
-                  />
-                </div>
-                <div>
-                  <label className="mb-1.5 block font-arabic text-sm font-medium text-navy">
-                    رقم الجوال
-                  </label>
-                  <input
-                    required
-                    type="tel"
-                    placeholder="05x xxx xxxx"
-                    className="w-full rounded-xl border border-navy/15 bg-cream/40 px-4 py-3 font-arabic text-sm text-navy outline-none transition-all placeholder:text-navy/40 focus:border-gold focus:bg-white focus:ring-2 focus:ring-gold/20"
-                  />
-                </div>
-                <div>
-                  <label className="mb-1.5 block font-arabic text-sm font-medium text-navy">
-                    البريد الإلكتروني
-                  </label>
-                  <input
-                    required
-                    type="email"
-                    placeholder="email@example.com"
-                    dir="ltr"
-                    className="w-full rounded-xl border border-navy/15 bg-cream/40 px-4 py-3 text-right font-arabic text-sm text-navy outline-none transition-all placeholder:text-navy/40 focus:border-gold focus:bg-white focus:ring-2 focus:ring-gold/20"
-                  />
-                </div>
-                <div>
-                  <label className="mb-1.5 block font-arabic text-sm font-medium text-navy">
-                    نوع المشروع
-                  </label>
-                  <select
-                    className="w-full rounded-xl border border-navy/15 bg-cream/40 px-4 py-3 font-arabic text-sm text-navy outline-none transition-all focus:border-gold focus:bg-white focus:ring-2 focus:ring-gold/20"
-                  >
-                    <option>سكني</option>
-                    <option>تجاري</option>
-                    <option>خارجي</option>
-                    <option>أخرى</option>
-                  </select>
-                </div>
-              </div>
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <div>
+                      <label className="mb-1.5 block font-arabic text-sm font-medium text-navy">
+                        الاسم الكامل
+                      </label>
+                      <input
+                        required
+                        type="text"
+                        name="Full Name"
+                        placeholder="اكتب اسمك"
+                        className="w-full rounded-xl border border-navy/15 bg-cream/40 px-4 py-3 font-arabic text-sm text-navy outline-none transition-all placeholder:text-navy/40 focus:border-gold focus:bg-white focus:ring-2 focus:ring-gold/20"
+                      />
+                    </div>
+                    <div>
+                      <label className="mb-1.5 block font-arabic text-sm font-medium text-navy">
+                        رقم الجوال
+                      </label>
+                      <input
+                        required
+                        type="tel"
+                        name="Phone"
+                        placeholder="05x xxx xxxx"
+                        pattern="05[0-9]{8}"
+                        maxLength={10}
+                        minLength={10}
+                        dir="ltr"
+                        onInput={(e) => {
+                          e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, '');
+                        }}
+                        className="w-full rounded-xl border border-navy/15 bg-cream/40 px-4 py-3 text-right font-arabic text-sm text-navy outline-none transition-all placeholder:text-navy/40 focus:border-gold focus:bg-white focus:ring-2 focus:ring-gold/20"
+                      />
+                    </div>
+                    <div>
+                      <label className="mb-1.5 block font-arabic text-sm font-medium text-navy">
+                        البريد الإلكتروني
+                      </label>
+                      <input
+                        required
+                        type="email"
+                        name="Email"
+                        placeholder="email@example.com"
+                        dir="ltr"
+                        className="w-full rounded-xl border border-navy/15 bg-cream/40 px-4 py-3 text-right font-arabic text-sm text-navy outline-none transition-all placeholder:text-navy/40 focus:border-gold focus:bg-white focus:ring-2 focus:ring-gold/20"
+                      />
+                    </div>
+                    <div>
+                      <label className="mb-1.5 block font-arabic text-sm font-medium text-navy">
+                        نوع المشروع / الفعالية
+                      </label>
+                      <select
+                        name="Project Type"
+                        required
+                        className="w-full rounded-xl border border-navy/15 bg-cream/40 px-4 py-3 font-arabic text-sm text-navy outline-none transition-all focus:border-gold focus:bg-white focus:ring-2 focus:ring-gold/20 custom-select"
+                      >
+                        <option value="" disabled selected>اختر النوع...</option>
+                        <option value="المعارض">المعارض (Exhibitions)</option>
+                        <option value="المؤتمرات والندوات">المؤتمرات والندوات (Conferences)</option>
+                        <option value="حفلات وإطلاقات">حفلات وإطلاقات (Launches)</option>
+                        <option value="فعاليات حكومية">فعاليات حكومية (Government)</option>
+                        <option value="فعاليات شركات ومؤسسات">فعاليات شركات ومؤسسات (Corporate)</option>
+                        <option value="مهرجانات واحتفالات">مهرجانات واحتفالات (Festivals)</option>
+                        <option value="أخرى">أخرى (Other)</option>
+                      </select>
+                    </div>
+                  </div>
 
-              <div className="mt-4">
-                <label className="mb-1.5 block font-arabic text-sm font-medium text-navy">
-                  تفاصيل المشروع
-                </label>
-                <textarea
-                  required
-                  rows={4}
-                  placeholder="أخبرنا عن مشروعك..."
-                  className="w-full resize-none rounded-xl border border-navy/15 bg-cream/40 px-4 py-3 font-arabic text-sm text-navy outline-none transition-all placeholder:text-navy/40 focus:border-gold focus:bg-white focus:ring-2 focus:ring-gold/20"
-                />
-              </div>
-
-              <Button
-                type="submit"
-                disabled={loading || sent}
-                className="mt-6 w-full gap-2 rounded-full bg-navy py-6 font-arabic text-base font-semibold text-cream shadow-glow-navy transition-all hover:bg-navy-light hover:shadow-glow-gold disabled:opacity-70"
-              >
-                {loading ? (
-                  <>
-                    <motion.span
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                      className="h-5 w-5 rounded-full border-2 border-cream/30 border-t-cream"
+                  <div className="mt-4">
+                    <label className="mb-1.5 block font-arabic text-sm font-medium text-navy">
+                      تفاصيل الفعالية وموعدها
+                    </label>
+                    <textarea
+                      required
+                      name="Project Details"
+                      rows={4}
+                      placeholder="أخبرنا عن تفاصيل الفعالية، موعدها المتوقع، وحجم الحضور..."
+                      className="w-full resize-none rounded-xl border border-navy/15 bg-cream/40 px-4 py-3 font-arabic text-sm text-navy outline-none transition-all placeholder:text-navy/40 focus:border-gold focus:bg-white focus:ring-2 focus:ring-gold/20"
                     />
-                    جارٍ الإرسال...
-                  </>
-                ) : sent ? (
-                  <>
-                    <CheckCircle2 className="h-5 w-5" />
-                    تم الإرسال بنجاح!
-                  </>
-                ) : (
-                  <>
-                    <Send className="h-5 w-5" />
-                    أرسل الرسالة
-                  </>
-                )}
-              </Button>
+                  </div>
+
+                  <Button
+                    type="submit"
+                    disabled={loading}
+                    className="mt-6 w-full gap-2 rounded-full bg-navy py-6 font-arabic text-base font-semibold text-cream shadow-glow-navy transition-all hover:bg-navy-light hover:shadow-glow-gold disabled:opacity-70"
+                  >
+                    {loading ? (
+                      <>
+                        <motion.span
+                          animate={{ rotate: 360 }}
+                          transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                          className="h-5 w-5 rounded-full border-2 border-cream/30 border-t-cream"
+                        />
+                        جارٍ الإرسال...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="h-5 w-5" />
+                        أرسل الرسالة
+                      </>
+                    )}
+                  </Button>
+                </>
+              )}
             </form>
           </Reveal>
         </div>
