@@ -88,7 +88,9 @@ export function FAQ() {
               </p>
             </div>
             <a
-              href="#contact"
+              href="https://wa.me/966552792254"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-cream px-6 py-3 font-arabic text-sm font-semibold text-navy transition-all hover:bg-gold-light"
             >
               <MessageCircleQuestion className="h-4 w-4" />

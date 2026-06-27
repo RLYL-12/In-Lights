@@ -51,7 +51,7 @@ const PRODUCTS = [
   },
   {
     icon: ClipboardCheck,
-    name: "أكشاك تسجيل",
+    name: "تنظيم الحضور",
     tag: "استقبال",
     desc: "أكشاك تسجيل إلكتروني ذكية لاستقبال الضيوف",
     points: ["تسجيل ذاتي سريع", "طباعة بطاقات الحضور", "تتبع الحضور"],
@@ -168,7 +168,7 @@ export function Products() {
         <div className="flex flex-col items-center gap-4 text-center">
           <SectionHeading
             eyebrow="المتجر"
-            title="متجر المعدات والتجهيزات"
+            title="متجر استئجار المعدات والتجهيزات"
             subtitle="تأجير وبيع المعدات التقنية للفعاليات — استكشف مجموعتنا الفاخرة من التجهيزات الاحترافية."
           />
           <AnimatePresence>

@@ -29,7 +29,9 @@ export function PremiumCTA() {
             </p>
 
             <a
-              href="#contact"
+              href="https://wa.me/966552792254"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full bg-navy px-10 py-4 font-arabic text-lg font-semibold text-cream shadow-md transition-all duration-300 hover:bg-navy-light hover:shadow-glow-gold"
             >
               ابدأ مشروعك الآن
