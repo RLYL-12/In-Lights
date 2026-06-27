@@ -70,11 +70,7 @@ export function ClientsSide() {
       </Reveal>
 
       <div className="flex flex-1 flex-col justify-center">
-        {/* Helper Text RTL */}
-        <div className="mb-4 flex items-center justify-end gap-2 pr-8 text-gold-light opacity-80">
-          <span className="font-arabic text-sm">يتحرك تلقائياً</span>
-          <ArrowLeft className="h-4 w-4" strokeWidth={1.5} />
-        </div>
+
 
         {/* Marquee Row 1 — right-to-left */}
         <div className="relative mb-6 flex overflow-hidden">
@@ -98,11 +94,7 @@ export function ClientsSide() {
           </div>
         </div>
 
-        {/* Helper Text LTR */}
-        <div className="mt-4 flex items-center justify-start gap-2 pl-8 text-gold-light opacity-80">
-          <ArrowRight className="h-4 w-4" strokeWidth={1.5} />
-          <span className="font-arabic text-sm">يتحرك تلقائياً</span>
-        </div>
+
       </div>
 
       {/* Statistics Row */}

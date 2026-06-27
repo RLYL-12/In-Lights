@@ -26,7 +26,7 @@ const FOOTER_LINKS = [
       { label: "خدماتنا", href: "#services" },
       { label: "أعمالنا", href: "#portfolio" },
       { label: "آراء العملاء", href: "#testimonials" },
-      { label: "المدونة", href: "#blog" },
+
       { label: "الأسئلة الشائعة", href: "#faq" },
     ],
   },
@@ -61,7 +61,7 @@ export function Footer() {
       <div className="relative z-10 mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         
         {/* Main Grid */}
-        <div className="grid gap-10 lg:grid-cols-12 lg:gap-8">
+        <div className="grid gap-10 lg:grid-cols-10 lg:gap-8">
           
           {/* Brand & Socials (Right) */}
           <div className="lg:col-span-3 flex flex-col items-start text-right">
@@ -96,19 +96,19 @@ export function Footer() {
             <ul className="space-y-4 w-full flex flex-col items-start">
               <li className="flex items-start justify-start gap-3 font-arabic text-sm text-cream/80">
                 <MapPin className="mt-1 h-4 w-4 shrink-0 text-gold" strokeWidth={1.5} />
-                <span>طريق الملك فهد، الرياض، السعودية</span>
+                <span>المملكة العربية السعودية، مكة المكرمة، الزايدي شارع ابراهيم بن النبي</span>
               </li>
               <li className="flex items-center justify-start gap-3 font-arabic text-sm text-cream/80">
                 <Mail className="h-4 w-4 shrink-0 text-gold" strokeWidth={1.5} />
-                <span dir="ltr" className="text-left">info@enlights.sa</span>
+                <span dir="ltr" className="text-left">info@inlights-sa.com</span>
               </li>
               <li className="flex items-center justify-start gap-3 font-arabic text-sm text-cream/80">
                 <Phone className="h-4 w-4 shrink-0 text-gold" strokeWidth={1.5} />
-                <span dir="ltr" className="text-left">+966 11 234 5678</span>
+                <a href="tel:+966552792254" dir="ltr" className="text-left hover:text-gold transition-colors">+966 55 279 2254</a>
               </li>
               <li className="flex items-center justify-start gap-3 font-arabic text-sm text-cream/80">
                 <MessageCircle className="h-4 w-4 shrink-0 text-gold" strokeWidth={1.5} />
-                <span dir="ltr" className="text-left">+966 55 123 4567</span>
+                <a href="https://wa.me/966552792254" target="_blank" rel="noopener noreferrer" dir="ltr" className="text-left hover:text-gold transition-colors">+966 55 279 2254</a>
               </li>
             </ul>
           </div>
@@ -136,37 +136,7 @@ export function Footer() {
             </div>
           ))}
 
-          {/* Newsletter / mini CTA (Left) */}
-          <div className="lg:col-span-2 flex flex-col items-start">
-            <h4 className="mb-6 flex items-center justify-start gap-2 font-display text-base font-bold text-cream w-full">
-              <Star size={12} glow={false} className="ml-2" />
-              ابقَ على اطلاع
-            </h4>
-            <p className="mb-6 font-arabic text-sm text-cream/60 text-right w-full">
-              نشرة شهرية، أحدث الفعاليات والعروض.
-            </p>
-            <form
-              onSubmit={(e) => e.preventDefault()}
-              className="flex flex-col gap-4 w-full max-w-xs"
-            >
-              <div className="relative">
-                <input
-                  type="email"
-                  placeholder="بريدك الإلكتروني"
-                  dir="ltr"
-                  className="w-full rounded-full border border-cream/10 bg-white/5 py-3 pl-4 pr-10 text-right font-arabic text-sm text-cream outline-none transition-all placeholder:text-cream/40 hover:border-cream/20 focus:border-gold focus:bg-white/10"
-                />
-                <Mail className="absolute right-4 top-1/2 -translate-y-1/2 h-4 w-4 text-cream/40" strokeWidth={1.5} />
-              </div>
-              <button
-                type="submit"
-                className="group relative flex w-full items-center justify-center gap-2 rounded-full bg-gradient-to-r from-gold-light to-gold px-4 py-3 font-arabic text-sm font-bold text-navy transition-all hover:scale-[1.02] hover:shadow-lg hover:shadow-gold/20"
-              >
-                اشترك الآن
-                <ChevronLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" strokeWidth={2} />
-              </button>
-            </form>
-          </div>
+
         </div>
 
         {/* Divider */}
@@ -176,13 +146,23 @@ export function Footer() {
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           
           {/* Copyright (Right) */}
-          <div className="flex items-center gap-2 font-arabic text-sm text-cream/50 order-3 md:order-1">
+          <div className="flex items-center gap-2 font-arabic text-sm text-cream/50 order-3 md:order-1 w-full md:w-auto justify-center md:justify-start">
             © {new Date().getFullYear()} إن لايتس (Enlights) — جميع الحقوق محفوظة.
             <Star size={10} glow={false} className="text-gold" />
           </div>
 
-          {/* Links (Center) */}
-          <div className="flex items-center gap-6 order-2">
+          {/* Back to Top (Center) */}
+          <motion.a
+            href="#home"
+            whileHover={{ y: -3 }}
+            className="inline-flex items-center justify-center gap-2 rounded-full border border-gold bg-gold px-8 py-3 font-arabic text-sm font-bold text-navy transition-all hover:border-gold-light hover:bg-gold-light order-1 md:order-2"
+          >
+            الأعلى
+            <ChevronsUp className="h-4 w-4" strokeWidth={2} />
+          </motion.a>
+
+          {/* Links (Left) */}
+          <div className="flex items-center gap-6 order-2 md:order-3 w-full md:w-auto justify-center md:justify-end">
             <a href="#" className="font-arabic text-sm text-cream/50 transition-colors hover:text-gold-light">
               سياسة الخصوصية
             </a>
@@ -191,15 +171,6 @@ export function Footer() {
               الشروط والأحكام
             </a>
           </div>
-
-          <motion.a
-            href="#home"
-            whileHover={{ y: -3 }}
-            className="inline-flex items-center gap-2 rounded-full border border-cream/10 bg-white/5 px-6 py-2.5 font-arabic text-sm font-medium text-cream transition-all hover:border-gold hover:bg-gold/5 hover:text-gold-light order-1 md:order-3"
-          >
-            الأعلى
-            <ChevronsUp className="h-4 w-4" strokeWidth={1.5} />
-          </motion.a>
         </div>
       </div>
     </footer>

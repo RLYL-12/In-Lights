@@ -93,7 +93,9 @@ export function AboutOverview() {
             {/* CTA */}
             <Reveal direction="up" delay={0.4} className="mt-10">
               <a
-                href="#contact"
+                href="https://wa.me/966552792254"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex items-center gap-3 rounded-full bg-navy px-8 py-4 font-arabic text-base font-bold text-cream shadow-[0_8px_30px_-8px_rgba(20,14,106,0.4)] transition-all duration-300 hover:bg-navy-light hover:shadow-[0_8px_30px_-8px_rgba(216,179,93,0.4)]"
               >
                 تواصل معنا الآن
@@ -124,7 +126,7 @@ export function AboutOverview() {
                     <div className="absolute left-1/2 top-1/2 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-gold/15 blur-[80px]" />
                     
                     <div className="relative z-10 text-center">
-                      <Logo size={120} animated className="sm:h-[140px] sm:w-[140px]" />
+                      <Logo size={180} animated variant="light" className="sm:h-[200px] sm:w-[200px]" />
                       <div className="mt-8 font-display text-2xl font-bold text-cream sm:text-3xl">
                         In Lights
                       </div>

@@ -160,6 +160,21 @@ export function Features() {
                             </li>
                           ))}
                         </ul>
+
+                        {/* Book Now Button */}
+                        <div className="mt-auto border-t border-navy/8 pt-5">
+                          <a
+                            href="https://wa.me/966552792254"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex w-full items-center justify-center gap-2 rounded-full bg-navy px-6 py-3 font-arabic text-sm font-semibold text-cream shadow-sm transition-all duration-300 hover:bg-gold hover:shadow-md hover:-translate-y-0.5 group/btn"
+                          >
+                            <span>احجز الآن</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover/btn:-translate-x-1">
+                              <path d="m15 18-6-6 6-6"/>
+                            </svg>
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </Reveal>

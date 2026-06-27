@@ -103,7 +103,9 @@ export function Hero() {
           >
             <Magnetic strength={0.2}>
               <a
-                href="#contact"
+                href="https://wa.me/966552792254"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group flex w-full sm:w-auto items-center justify-center gap-3 rounded-full bg-navy px-8 py-4 font-arabic text-base font-semibold text-white shadow-[0_8px_20px_-8px_rgba(20,14,106,0.5)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-navy-light hover:shadow-[0_12px_25px_-8px_rgba(20,14,106,0.6)]"
               >
                 احجز استشارة مجانية
@@ -120,16 +122,7 @@ export function Hero() {
             transition={{ delay: 1.2, duration: 1 }}
             className="mt-12 flex w-full flex-col items-start gap-8 border-t border-navy/10 pt-8 sm:flex-row sm:items-center sm:justify-between"
           >
-            <div className="flex items-center gap-3 opacity-60">
-              <div className="flex h-[34px] w-[22px] items-start justify-center rounded-full border-2 border-navy/30 p-1">
-                <motion.span
-                  animate={{ y: [0, 8, 0], opacity: [1, 0.5, 1] }}
-                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                  className="h-1.5 w-1.5 rounded-full bg-navy/60"
-                />
-              </div>
-              <span className="font-arabic text-xs font-medium text-navy/60">اكتشف المزيد</span>
-            </div>
+
 
             <div className="flex flex-wrap items-center gap-6 sm:gap-8">
               {[

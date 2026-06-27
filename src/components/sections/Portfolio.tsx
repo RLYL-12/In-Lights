@@ -93,7 +93,7 @@ const PROJECTS = [
   },
 ];
 
-export function Portfolio() {
+export function Portfolio({ hideCTA = false }: { hideCTA?: boolean }) {
   const [active, setActive] = useState("all");
 
   const filtered =
@@ -190,17 +190,19 @@ export function Portfolio() {
         </motion.div>
 
         {/* CTA */}
-        <Reveal direction="up" delay={0.3} className="mt-12 text-center">
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 rounded-full border-2 border-navy/20 px-8 py-3.5 font-arabic text-base font-semibold text-navy transition-all hover:border-navy hover:bg-navy hover:text-cream"
-          >
-            هل لديك فعالية قادمة؟ احجز الآن
-            <ArrowUpLeft className="h-5 w-5" />
-          </a>
-        </Reveal>
+        {!hideCTA && (
+          <Reveal direction="up" delay={0.3} className="mt-12 text-center">
+            <a
+              href="/portfolio"
+              className="inline-flex items-center gap-2 rounded-full border-2 border-navy/20 px-8 py-3.5 font-arabic text-base font-semibold text-navy transition-all hover:border-navy hover:bg-navy hover:text-cream"
+            >
+              استكشف مركز الأعمال
+              <ArrowUpLeft className="h-5 w-5" />
+            </a>
+          </Reveal>
+        )}
       </div>
-      <ScrollArrow href="#testimonials" />
+      {!hideCTA && <ScrollArrow href="#testimonials" />}
     </section>
   );
 }

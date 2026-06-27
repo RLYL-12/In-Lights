@@ -14,7 +14,7 @@ const NAV_LINKS = [
   { href: "#portfolio", label: "أعمالنا" },
 
   { href: "#testimonials", label: "آراء العملاء" },
-  { href: "#blog", label: "المدونة" },
+
   { href: "#contact", label: "تواصل" },
 ];
 
@@ -95,10 +95,10 @@ export function Navbar() {
 
           <div className="flex items-center gap-4">
             <a
-              href="#contact"
+              href="https://wa.me/966552792254" target="_blank" rel="noopener noreferrer"
               className="hidden sm:inline-flex items-center rounded-full bg-navy px-7 py-3 font-arabic text-sm font-semibold text-cream shadow-glow-navy transition-all hover:bg-navy-light hover:shadow-lg hover:-translate-y-0.5"
             >
-              ابدأ الآن
+              احجز الآن
             </a>
             <button
               onClick={() => setOpen((v) => !v)}
@@ -154,11 +154,11 @@ export function Navbar() {
                   );
                 })}
                 <a
-                  href="#contact"
+                  href="https://wa.me/966552792254" target="_blank" rel="noopener noreferrer"
                   onClick={() => setOpen(false)}
                   className="mt-6 rounded-full bg-navy px-6 py-4 text-center font-arabic text-lg font-semibold text-cream shadow-glow-navy"
                 >
-                  ابدأ الآن
+                  احجز الآن
                 </a>
               </div>
             </motion.div>

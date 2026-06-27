@@ -7,7 +7,7 @@ import { Portfolio } from "@/components/sections/Portfolio";
 
 import { Testimonials } from "@/components/sections/Testimonials";
 import { FAQ } from "@/components/sections/FAQ";
-import { Blog } from "@/components/sections/Blog";
+
 
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
@@ -41,8 +41,7 @@ export default function Home() {
         <SectionDivider className="my-8" />
         <FAQ />
         
-        {/* <SectionDivider className="my-8" />
-        <Blog /> */}
+
 
         <SectionDivider className="my-8" />
         <Contact />
